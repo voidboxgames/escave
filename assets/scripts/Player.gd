@@ -12,8 +12,6 @@ var direction = Vector2.LEFT
 var jumps_left: int = 0
 var is_jumping = false
 var is_jump_button_pressed = false
-var is_crouching = false
-var is_shooting = false
 
 onready var coyote_timer = $CoyoteTimer
 onready var floor_timer = $FloorTimer
@@ -49,10 +47,9 @@ func update_direction() -> void:
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
-	is_crouching = is_on_floor() and direction.x == 0 and direction.y > 0
 
 func move_velocity() -> void:
-	if is_crouching or direction == Vector2.ZERO:
+	if direction == Vector2.ZERO:
 		velocity.x = lerp(velocity.x, 0, friction)
 		return
 
