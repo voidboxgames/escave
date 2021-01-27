@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 104, 8 )
+extents = Vector2( 24, 0.832016 )
 
 [node name="Platform" type="RigidBody2D"]
 mode = 1
@@ -10,9 +10,8 @@ mode = 1
 shape = SubResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -104.0
-margin_top = -8.0
-margin_right = 104.0
+margin_left = -24.0
+margin_right = 24.0
 margin_bottom = 8.0
 __meta__ = {
 "_edit_use_anchors_": false
