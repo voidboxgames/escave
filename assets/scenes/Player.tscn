@@ -90,8 +90,11 @@ wait_time = 0.1
 one_shot = true
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [connection signal="timeout" from="FloorTimer" to="." method="_on_FloorTimer_timeout"]
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -101,6 +104,9 @@ anims/idle = SubResource( 2 )
 "anims/idle (copy)" = SubResource( 4 )
 anims/walk = SubResource( 3 )
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
