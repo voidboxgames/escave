@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.30721
-height = 3.17657
+height = 5.0863
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
@@ -67,7 +67,7 @@ hframes = 4
 frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.0856, 2.9854 )
+position = Vector2( -1.2198, 2.38149 )
 shape = SubResource( 1 )
 
 [node name="CoyoteTimer" type="Timer" parent="."]
