@@ -41,7 +41,7 @@ tracks/0/keys = {
 "values": [ 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "jump_start"
 length = 0.25
 loop = true
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "values": [ 8 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.35
 loop = true
 tracks/0/type = "value"
@@ -81,7 +81,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 4
-frame = 9
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2.18039 )
@@ -99,6 +99,6 @@ one_shot = true
 autoplay = "idle"
 anims/idle = SubResource( 2 )
 anims/jump_fly = SubResource( 3 )
-anims/jump_start = SubResource( 5 )
-anims/walk = SubResource( 4 )
+anims/jump_start = SubResource( 4 )
+anims/walk = SubResource( 5 )
 [connection signal="timeout" from="FloorTimer" to="." method="_on_FloorTimer_timeout"]
