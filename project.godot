@@ -17,11 +17,17 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://assets/scripts/Player.gd"
+"path": "res://assets/scripts/Player/Player.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://assets/scripts/StateMachine.gd"
 } ]
 _global_script_class_icons={
 "MirroPiece": "",
-"Player": ""
+"Player": "",
+"StateMachine": ""
 }
 
 [application]
