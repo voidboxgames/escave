@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Player
+
 export var max_speed = 125
 export(int) var max_jumps = 1
 export var jump_force = 250
@@ -12,6 +14,8 @@ var direction = Vector2.LEFT
 var jumps_left: int = 0
 var is_jumping = false
 var is_jump_button_pressed = false
+
+signal dead
 
 onready var coyote_timer = $CoyoteTimer
 onready var floor_timer = $FloorTimer
@@ -67,11 +71,19 @@ func jump_velocity() -> void:
 		velocity.y = 0.0
 
 func jump() -> void:
+	$Sounds/Jump.play()
 	jumps_left -= 1
 	is_jumping = true
 	coyote_timer.stop()
 	velocity.y = -jump_force
 
+func die() -> void:
+	emit_signal("dead")
+
 func _on_FloorTimer_timeout() -> void:
 	if is_on_floor():
 		jump()
+
+
+func _on_VisibilityNotifier2D_screen_exited() -> void:
+	die()

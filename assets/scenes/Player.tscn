@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/beth-Sheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/jump.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/land.wav" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.30721
@@ -81,9 +83,10 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 4
-frame = 5
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 2.18039 )
 shape = SubResource( 1 )
 
@@ -101,4 +104,16 @@ anims/idle = SubResource( 2 )
 anims/jump_fly = SubResource( 3 )
 anims/jump_start = SubResource( 4 )
 anims/walk = SubResource( 5 )
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 3 )
+
+[node name="land" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 4 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
 [connection signal="timeout" from="FloorTimer" to="." method="_on_FloorTimer_timeout"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
