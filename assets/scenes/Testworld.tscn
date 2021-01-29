@@ -366,7 +366,7 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 12, 16, 12 )
 extents = Vector2( 2.05296, 34.8788 )
 
 [sub_resource type="RectangleShape2D" id=38]
-extents = Vector2( 32.0291, 1.76349 )
+extents = Vector2( 61.1759, 1.76349 )
 
 [node name="Testworld" type="Node2D"]
 script = ExtResource( 2 )
@@ -410,11 +410,22 @@ position = Vector2( 150.546, -27.8675 )
 
 [node name="Trigger" type="Node" parent="."]
 
-[node name="mono_sinking_pit" type="Area2D" parent="Trigger"]
+[node name="Monologues" type="Node" parent="Trigger"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/mono_sinking_pit"]
-position = Vector2( -62.4899, 46.272 )
+[node name="mono_sinking_pit" type="Area2D" parent="Trigger/Monologues"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/Monologues/mono_sinking_pit"]
+position = Vector2( -34.5906, 45.9318 )
 shape = SubResource( 38 )
+
+[node name="Respawns" type="Node" parent="Trigger"]
+
+[node name="R1" type="Position2D" parent="Trigger/Respawns"]
+position = Vector2( -102.759, 19.8125 )
+
+[node name="R2" type="Position2D" parent="Trigger/Respawns"]
+position = Vector2( 168.462, 17.9532 )
 [connection signal="dead" from="YSort/Player" to="." method="_on_Player_dead"]
 [connection signal="body_entered" from="YSort/Room1/R1_right" to="." method="_on_R1_right_body_entered"]
-[connection signal="body_entered" from="Trigger/mono_sinking_pit" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Trigger/Monologues/mono_sinking_pit" to="." method="_on_Area2D_body_entered"]

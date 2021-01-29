@@ -1,6 +1,7 @@
 extends Node2D
 
 export(Color, RGB) var clear_color
+onready var respawn_position = $Trigger/Respawns/R1.position
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,14 +18,16 @@ func _get_camera_center():
 func _on_R1_right_body_entered(body: Node) -> void:
 	if body is Player:
 		if $YSort/Room1.current:
+			respawn_position = $Trigger/Respawns/R2.position
 			$YSort/Room2.current = true
-		else:
+			
+		elif $YSort/Room2.current:
+			respawn_position = $Trigger/Respawns/R1.position
 			$YSort/Room1.current = true
 
 
-
 func _on_Player_dead() -> void:
-	get_tree().reload_current_scene()
+	$YSort/Player.position = respawn_position
 
 
 func _on_Area2D_body_entered(body: Node) -> void:
