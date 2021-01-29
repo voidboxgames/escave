@@ -20,7 +20,7 @@ func _on_R1_right_body_entered(body: Node) -> void:
 		if $YSort/Room1.current:
 			respawn_position = $Trigger/Respawns/R2.position
 			$YSort/Room2.current = true
-			
+
 		elif $YSort/Room2.current:
 			respawn_position = $Trigger/Respawns/R1.position
 			$YSort/Room1.current = true
