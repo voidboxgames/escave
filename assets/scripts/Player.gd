@@ -80,6 +80,9 @@ func jump() -> void:
 func die() -> void:
 	emit_signal("dead")
 
+func gain_power(powerName: String) -> void:
+	print("gained power: "+powerName)
+
 func _on_FloorTimer_timeout() -> void:
 	if is_on_floor():
 		jump()
