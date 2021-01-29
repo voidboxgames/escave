@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/fonts/slkscr.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/slkscrb.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/sounds/monolog/slowly_sinking.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/scenes/effects/Monolog.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 26
+outline_size = 1
+outline_color = Color( 0.0588235, 0.054902, 0.054902, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "bottomless"
+length = 5.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:bbcode_text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.55, 0.8, 1.1, 1.2, 1.5, 1.7, 1.95, 2.15, 2.35, 2.55, 2.8, 4.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "", "[center]I", "[center]I'am", "[center]I'am slow", "[center]I'am slowly", "[center]I'am slowly sin", "[center]I'am slowly sinking", "[center]I'am slowly sinking in", "[center]I'am slowly sinking into", "[center]I'am slowly sinking into a", "[center]I'am slowly sinking into a bot", "[center]I'am slowly sinking into a bottom", "[center]I'am slowly sinking into a [rainbow]bottomless[/rainbow] ", "[center]I'am slowly sinking into a [rainbow]bottomless[/rainbow] pit", "" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sound/AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.55057 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="Monolog" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource( 3 )
+
+[node name="Label" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -564.924
+margin_top = 148.059
+margin_right = 566.076
+margin_bottom = 181.059
+custom_fonts/mono_font = SubResource( 3 )
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
+custom_colors/default_color = Color( 0.67451, 0.854902, 0.976471, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+anims/bottomless = SubResource( 2 )
