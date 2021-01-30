@@ -3,7 +3,9 @@ extends KinematicBody2D
 class_name Player
 
 export var max_speed = 125
+export(float) var dash_multiplier = 4.0
 export(int) var max_jumps = 1
+export(int) var max_dashes = 1
 export var jump_force = 250
 export var gravity = 800
 export(float, 0.0, 1.0) var acceleration = 0.5
@@ -39,23 +41,27 @@ func _handle_move_input() -> void:
 	direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
-	)
+	).normalized()
 	velocity.x = lerp(velocity.x , direction.x * max_speed, acceleration)
 	if direction.x != 0:
 		$Body.scale.x = direction.x
 
-var dying = false
+func _handle_dash_input() -> void:
+	if !gravity_enabled:
+		return
+	velocity = direction * max_speed * dash_multiplier
+	if direction.x != 0:
+		$Body.scale.x = direction.x
+
+	velocity = move_and_slide(velocity, Vector2.ZERO)
+
 func die() -> void:
 	$AnimationPlayer.play("death")
-	set_physics_process(false)
 
 func dead() -> void:
 	emit_signal("dead")
-	dying = false
-
 
 func respawn(pos: Vector2) -> void:
-	set_physics_process(false)
 	position = pos
 	$AnimationPlayer.play("respawn")
 

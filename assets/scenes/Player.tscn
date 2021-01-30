@@ -246,6 +246,10 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
+[node name="DashTimer" type="Timer" parent="PlayerStateMachine"]
+wait_time = 0.1
+one_shot = true
+
 [node name="Sounds" type="Node" parent="PlayerStateMachine"]
 
 [node name="Jump" type="AudioStreamPlayer" parent="PlayerStateMachine/Sounds"]
@@ -259,3 +263,4 @@ anims/jump_fly = SubResource( 4 )
 anims/jump_start = SubResource( 5 )
 anims/respawn = SubResource( 6 )
 anims/walk = SubResource( 7 )
+[connection signal="timeout" from="PlayerStateMachine/DashTimer" to="PlayerStateMachine" method="_on_DashTimer_timeout"]
