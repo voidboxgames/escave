@@ -93,7 +93,6 @@ func _dash_input() -> bool:
 	return false
 
 func _enter_state(new_state, old_state):
-	print("enter state %d" % new_state)
 	match new_state:
 		states.idle:
 			animation_player.play("idle")

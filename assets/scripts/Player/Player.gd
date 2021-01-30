@@ -2,16 +2,14 @@ extends KinematicBody2D
 
 class_name Player
 
-export var max_speed = 125
+export var max_speed = 100
 export(float) var dash_multiplier = 4.0
-export(int) var max_jumps = 1
-export(int) var max_dashes = 1
-export var jump_force = 250
-export var gravity = 800
+export(int) var max_dashes = 0
+export var jump_force = 200
+export var gravity = 600
 export(float, 0.0, 1.0) var acceleration = 0.5
 export(bool) var gravity_enabled = true
 
-export var can_walk = true
 export var can_jump = false
 
 var velocity = Vector2.ZERO
@@ -21,7 +19,9 @@ signal dead
 
 enum powers {
 	NONE,
-	JUMP
+	JUMP,
+	DASH,
+	DOUBLE_DASH
 }
 
 func _process(delta: float) -> void:
@@ -66,11 +66,13 @@ func respawn(pos: Vector2) -> void:
 	$AnimationPlayer.play("respawn")
 
 func gain_power(power) -> void:
-	print("new power")
 	match power:
 		powers.JUMP:
-			print("can_jump")
 			can_jump = true
+		powers.DASH:
+			max_dashes = 1
+		powers.DOUBLE_DASH:
+			max_dashes = 2
 
 func deadCheck() -> void:
 	if gravity_enabled:

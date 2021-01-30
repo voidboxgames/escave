@@ -441,9 +441,6 @@ clear_color = Color( 0.054902, 0.0509804, 0.054902, 1 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( -102.238, -57.7495 )
-max_speed = 100
-jump_force = 200
-gravity = 600
 
 [node name="gruond" type="TileMap" parent="YSort"]
 tile_set = SubResource( 35 )
@@ -578,6 +575,11 @@ position = Vector2( 109.08, 389.79 )
 
 [node name="MirrorPiece" parent="." instance=ExtResource( 3 )]
 position = Vector2( 150.546, -27.8675 )
+power = 2
+
+[node name="MirrorPiece2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 447.05, -73.9846 )
+power = 3
 
 [node name="MirrorPiece_Jump" parent="." instance=ExtResource( 3 )]
 position = Vector2( -566.117, 114.662 )
