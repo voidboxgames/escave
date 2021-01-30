@@ -441,8 +441,6 @@ clear_color = Color( 0.054902, 0.0509804, 0.054902, 1 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( -102.238, -57.7495 )
-max_dashes = 2
-can_jump = true
 
 [node name="gruond" type="TileMap" parent="YSort"]
 tile_set = SubResource( 35 )
@@ -628,6 +626,7 @@ color = Color( 0.721569, 0.709804, 0.815686, 1 )
 pause_mode = 2
 stream = ExtResource( 8 )
 autoplay = true
+[connection signal="dash" from="YSort/Player" to="." method="_on_Player_dash"]
 [connection signal="dead" from="YSort/Player" to="." method="_on_Player_dead"]
 [connection signal="visibility_changed" from="YSort/Player" to="." method="_on_Player_visibility_changed"]
 [connection signal="body_entered" from="YSort/Rooms/Room8/MoodChange" to="." method="_on_MoodChange_body_entered"]

@@ -74,6 +74,5 @@ func _shake_current_room():
 	current_room.offset.x = max_offset.x * amount * rand_range(-1, 1)
 	current_room.offset.y = max_offset.y * amount * rand_range(-1, 1)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		set_trauma(0.2)
+func _on_Player_dash() -> void:
+	set_trauma(0.18)

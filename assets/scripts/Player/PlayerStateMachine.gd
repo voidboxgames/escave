@@ -105,6 +105,7 @@ func _enter_state(new_state, old_state):
 			if [states.run, states.idle].has(old_state):
 				coyote_timer.start()
 		states.dash:
+			parent.emit_signal("dash")
 			$Sounds/Dash.play()
 			dash_timer.start()
 

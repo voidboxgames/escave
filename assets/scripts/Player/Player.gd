@@ -16,6 +16,7 @@ var velocity = Vector2.ZERO
 var direction = Vector2.LEFT
 
 signal dead
+signal dash
 
 enum powers {
 	NONE,
