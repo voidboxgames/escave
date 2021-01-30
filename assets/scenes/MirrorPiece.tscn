@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/sprites/mirror_piece-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/scenes/MirrorPiece.gd" type="Script" id=2]
 [ext_resource path="res://assets/scenes/MirrorPieceSprite.gd" type="Script" id=3]
 [ext_resource path="res://assets/sounds/pickup_1.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sprites/light1.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -47,11 +48,17 @@ hframes = 3
 frame = 2
 script = ExtResource( 3 )
 
+[node name="Light2D" type="Light2D" parent="Sprite"]
+texture = ExtResource( 5 )
+texture_scale = 1.49
+color = Color( 0.584314, 0.768627, 1, 1 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "idle"
 anims/idle = SubResource( 1 )
 
 [node name="HitBox" type="Area2D" parent="Sprite"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/HitBox"]
 position = Vector2( -1.31439, 0.751083 )
