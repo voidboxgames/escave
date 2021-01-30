@@ -362,12 +362,12 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 12, 16, 12 )
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="TileSet" id=39]
-
-[sub_resource type="RectangleShape2D" id=40]
-extents = Vector2( 103.043, 10 )
+[sub_resource type="TileSet" id=37]
 
 [sub_resource type="RectangleShape2D" id=38]
+extents = Vector2( 103.043, 10 )
+
+[sub_resource type="RectangleShape2D" id=39]
 extents = Vector2( 61.1759, 1.76349 )
 
 [node name="Testworld" type="Node2D"]
@@ -377,7 +377,10 @@ clear_color = Color( 0.101961, 0.109804, 0.160784, 1 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( -149.926, -108.088 )
+position = Vector2( -98.7267, -60.2411 )
+
+[node name="Player2" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -98.7267, -60.2411 )
 
 [node name="gruond" type="TileMap" parent="YSort"]
 tile_set = SubResource( 35 )
@@ -392,7 +395,7 @@ format = 1
 tile_data = PoolIntArray( -1048556, 0, 4, -983029, 0, 4, -851973, 0, 4, -917501, 0, 4, -786420, 0, 5, -786419, 0, 2, -786403, 0, 4, -786397, 0, 4, -655363, 0, 3, -720886, 0, 3, -655356, 0, 5, -655341, 0, 1, -655340, 0, 0, -589821, 0, 5, -589797, 0, 1, -589793, 0, 0, -589791, 0, 5, -524250, 0, 5, -393220, 0, 0, -393218, 0, 1, -393195, 0, 4, -393180, 0, 2, -327653, 0, 5, -327650, 0, 5, -327647, 0, 1, -131076, 0, 4, -196605, 0, 4, -131066, 0, 4, -65528, 0, 4, -65518, 0, 5, 13, 0, 0, 65547, 0, 1, 65551, 0, 1, 65552, 0, 3, 196602, 0, 1, 196604, 0, 0, 196607, 0, 5, 131074, 0, 0, 131075, 0, 1, 131078, 0, 1 )
 
 [node name="deadlies" type="TileMap" parent="YSort"]
-tile_set = SubResource( 39 )
+tile_set = SubResource( 37 )
 format = 1
 
 [node name="Rooms" type="Node" parent="YSort"]
@@ -479,7 +482,7 @@ zoom = Vector2( 0.25, 0.25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Rooms/Room8/MoodChange"]
 position = Vector2( 42.2117, 40.3764 )
-shape = SubResource( 40 )
+shape = SubResource( 38 )
 
 [node name="Room9" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( -268.854, 326.043 )
@@ -501,7 +504,7 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/Monologues/mono_sinking_pit"]
 position = Vector2( -34.5906, 45.9318 )
-shape = SubResource( 38 )
+shape = SubResource( 39 )
 
 [node name="Respawns" type="Node" parent="Trigger"]
 
@@ -512,6 +515,8 @@ autostart = true
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 [connection signal="dead" from="YSort/Player" to="." method="_on_Player_dead"]
 [connection signal="visibility_changed" from="YSort/Player" to="." method="_on_Player_visibility_changed"]
+[connection signal="dead" from="YSort/Player2" to="." method="_on_Player_dead"]
+[connection signal="visibility_changed" from="YSort/Player2" to="." method="_on_Player_visibility_changed"]
 [connection signal="body_entered" from="YSort/Rooms/Room8/MoodChange" to="." method="_on_MoodChange_body_entered"]
 [connection signal="body_entered" from="Trigger/Monologues/mono_sinking_pit" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Roomchecker" to="." method="_on_Roomchecker_timeout"]
