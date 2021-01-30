@@ -442,6 +442,7 @@ clear_color = Color( 0.054902, 0.0509804, 0.054902, 1 )
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( -102.238, -57.7495 )
 max_dashes = 2
+can_jump = true
 
 [node name="gruond" type="TileMap" parent="YSort"]
 tile_set = SubResource( 35 )

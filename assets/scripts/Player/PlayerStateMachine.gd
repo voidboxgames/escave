@@ -52,12 +52,14 @@ func _get_transition(delta):
 		states.dash:
 			return null
 		states.idle:
+			if _dash_input():
+				return states.dash
 			if !parent.is_on_floor():
 				if parent.velocity.y < 0:
 					return states.jump
 				elif parent.velocity.y > 0:
 					return states.fall
-			elif parent.velocity.x != 0:
+			elif parent.direction.x != 0:
 				return states.run
 		states.run:
 			if _dash_input():
@@ -67,7 +69,7 @@ func _get_transition(delta):
 					return states.jump
 				elif parent.velocity.y > 0:
 					return states.fall
-			elif parent.velocity.x < 1 and parent.velocity.x > -1:
+			elif parent.direction.x == 0:
 				return states.idle
 		states.jump:
 			if _dash_input():
@@ -103,6 +105,7 @@ func _enter_state(new_state, old_state):
 			if [states.run, states.idle].has(old_state):
 				coyote_timer.start()
 		states.dash:
+			$Sounds/Dash.play()
 			dash_timer.start()
 
 func _exit_state(old_state, new_state):
