@@ -12,6 +12,8 @@ func _ready() -> void:
 	call_deferred("set_state", states["idle"])
 
 func _input(event: InputEvent) -> void:
+	if animation_player.get_current_animation() == "death":
+		return
 	if  [states.idle, states.run].has(state):
 		if event.is_action_pressed("jump"):
 			_jump()

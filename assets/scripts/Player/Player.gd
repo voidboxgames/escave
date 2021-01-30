@@ -7,6 +7,7 @@ export(int) var max_jumps = 1
 export var jump_force = 250
 export var gravity = 800
 export(float, 0.0, 1.0) var acceleration = 0.5
+export(bool) var gravity_enabled = true 
 
 export var can_walk = true
 export var can_jump = false
@@ -25,12 +26,16 @@ func _process(delta: float) -> void:
 	deadCheck()
 
 func _apply_movement() -> void:
-	velocity = move_and_slide(velocity, Vector2.UP)
+	if gravity_enabled:
+		velocity = move_and_slide(velocity, Vector2.UP)
 
 func _apply_gravity(delta) -> void:
-	velocity.y += gravity * delta
+	if gravity_enabled:
+		velocity.y += gravity * delta
 
 func _handle_move_input() -> void:
+	if !gravity_enabled:
+		return
 	direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -39,8 +44,20 @@ func _handle_move_input() -> void:
 	if direction.x != 0:
 		$Body.scale.x = direction.x
 
+var dying = false
 func die() -> void:
+	$AnimationPlayer.play("death")
+	set_physics_process(false) 
+
+func dead() -> void:
 	emit_signal("dead")
+	dying = false
+	
+	
+func respawn(pos: Vector2) -> void:
+	set_physics_process(false)
+	position = pos
+	$AnimationPlayer.play("respawn")
 
 func gain_power(power) -> void:
 	print("new power")
@@ -50,7 +67,8 @@ func gain_power(power) -> void:
 			can_jump = true
 
 func deadCheck() -> void:
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		if collision.collider.is_in_group("deadly"):
-			die()
+	if gravity_enabled:
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			if collision.collider.is_in_group("deadly"):
+				die()

@@ -10,7 +10,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_Player_dead() -> void:
-	$YSort/Player.position = current_respawn.position
+	$YSort/Player.respawn(current_respawn.position)
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body is Player:
