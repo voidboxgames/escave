@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="escave"
-run/main_scene="res://assets/scenes/Testworld.tscn"
+run/main_scene="res://assets/scenes/Intro.tscn"
 config/icon="res://icon.png"
 
 [display]
