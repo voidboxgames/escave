@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://assets/scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scenes/Level.gd" type="Script" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://assets/scenes/MonologTrigger.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/scenes/Bridge.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/scenes/Trigger.gd" type="Script" id=11]
-[ext_resource path="res://assets/sprites/light2.png" type="Texture" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 0, 0, 16, 0, 16, 0, 16, 4, 4, 4, 4, 16, 0, 16 )
@@ -434,10 +433,6 @@ extents = Vector2( 103.043, 10 )
 [sub_resource type="RectangleShape2D" id=43]
 extents = Vector2( 10, 28.4592 )
 
-[sub_resource type="Environment" id=44]
-background_mode = 4
-glow_enabled = true
-
 [node name="Testworld" type="Node2D"]
 script = ExtResource( 2 )
 clear_color = Color( 0.054902, 0.0509804, 0.054902, 1 )
@@ -446,6 +441,7 @@ clear_color = Color( 0.054902, 0.0509804, 0.054902, 1 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( -102.238, -57.7495 )
+max_dashes = 2
 
 [node name="gruond" type="TileMap" parent="YSort"]
 tile_set = SubResource( 35 )
@@ -587,7 +583,7 @@ position = Vector2( 447.05, -73.9846 )
 power = 3
 
 [node name="MirrorPiece_Jump" parent="." instance=ExtResource( 3 )]
-position = Vector2( -565.569, 120.69 )
+position = Vector2( -566.117, 114.662 )
 power = 1
 
 [node name="Monolog" parent="." instance=ExtResource( 6 )]
@@ -620,13 +616,6 @@ shape = SubResource( 43 )
 [node name="Bridge" parent="Bridges" instance=ExtResource( 10 )]
 tile_data = PoolIntArray( 262128, 0, 0, 262129, 0, 0, 262130, 0, 0, 262131, 0, 0, 262132, 0, 0, 262133, 0, 0 )
 
-[node name="Lights" type="Node" parent="."]
-
-[node name="Lava1" type="Light2D" parent="Lights"]
-position = Vector2( 8.49454, 409.958 )
-scale = Vector2( 7.02839, 2.72974 )
-texture = ExtResource( 12 )
-
 [node name="Roomchecker" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
@@ -638,9 +627,6 @@ color = Color( 0.721569, 0.709804, 0.815686, 1 )
 pause_mode = 2
 stream = ExtResource( 8 )
 autoplay = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 44 )
 [connection signal="dead" from="YSort/Player" to="." method="_on_Player_dead"]
 [connection signal="visibility_changed" from="YSort/Player" to="." method="_on_Player_visibility_changed"]
 [connection signal="body_entered" from="YSort/Rooms/Room8/MoodChange" to="." method="_on_MoodChange_body_entered"]

@@ -67,7 +67,7 @@ func _get_transition(delta):
 					return states.jump
 				elif parent.velocity.y > 0:
 					return states.fall
-			elif parent.velocity.x == 0:
+			elif parent.velocity.x < 1 and parent.velocity.x > -1:
 				return states.idle
 		states.jump:
 			if _dash_input():
@@ -81,8 +81,6 @@ func _get_transition(delta):
 				return states.dash
 			if parent.is_on_floor():
 				return states.idle
-			elif parent.velocity.y < 0:
-				return states.jump
 	return null
 
 func _dash_input() -> bool:
@@ -105,18 +103,18 @@ func _enter_state(new_state, old_state):
 			if [states.run, states.idle].has(old_state):
 				coyote_timer.start()
 		states.dash:
-			parent.velocity = Vector2.ZERO
 			dash_timer.start()
 
 func _exit_state(old_state, new_state):
 	match old_state:
 		states.fall:
 			if new_state == states.idle:
-				current_dashes = 0
-				if !ground_timer.is_stopped():
-					_jump()
+				if parent.is_on_floor():
+					current_dashes = 0
+					if !ground_timer.is_stopped() :
+						_jump()
 		states.dash:
 			parent.velocity = Vector2.ZERO
 
 func _on_DashTimer_timeout() -> void:
-	set_state(states.idle)
+	set_state(states.fall)
