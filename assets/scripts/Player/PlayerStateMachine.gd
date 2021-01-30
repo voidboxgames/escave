@@ -16,6 +16,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("jump"):
 			_jump()
 	if state == states.jump:
+
 		if event.is_action_released("jump") && parent.velocity.y < 0:
 			parent.velocity.y = 0.0
 	if state == states.fall:
@@ -26,6 +27,8 @@ func _input(event: InputEvent) -> void:
 				ground_timer.start()
 
 func _jump() -> void:
+	if !parent.can_jump:
+		return
 	$Sounds/Jump.play()
 	coyote_timer.stop()
 	parent.velocity.y = -parent.jump_force

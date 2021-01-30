@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Sprite",
-"class": "MirroPiece",
-"language": "GDScript",
-"path": "res://assets/scenes/MirrorPiece.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -23,11 +18,16 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://assets/scripts/StateMachine.gd"
+}, {
+"base": "Object",
+"class": "utils",
+"language": "GDScript",
+"path": "res://assets/scripts/utils.gd"
 } ]
 _global_script_class_icons={
-"MirroPiece": "",
 "Player": "",
-"StateMachine": ""
+"StateMachine": "",
+"utils": ""
 }
 
 [application]

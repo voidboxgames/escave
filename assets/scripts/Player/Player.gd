@@ -8,10 +8,18 @@ export var jump_force = 250
 export var gravity = 800
 export(float, 0.0, 1.0) var acceleration = 0.5
 
+export var can_walk = true
+export var can_jump = false
+
 var velocity = Vector2.ZERO
 var direction = Vector2.LEFT
 
 signal dead
+
+enum powers {
+	NONE,
+	JUMP
+}
 
 func _process(delta: float) -> void:
 	deadCheck()
@@ -34,8 +42,12 @@ func _handle_move_input() -> void:
 func die() -> void:
 	emit_signal("dead")
 
-func gain_power(powerName: String) -> void:
-	print("gained power: "+powerName)
+func gain_power(power) -> void:
+	print("new power")
+	match power:
+		powers.JUMP:
+			print("can_jump")
+			can_jump = true
 
 func deadCheck() -> void:
 	for i in get_slide_count():

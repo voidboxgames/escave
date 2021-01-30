@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/sprites/mirror_piece-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/scenes/MirrorPiece.gd" type="Script" id=2]
+[ext_resource path="res://assets/scenes/MirrorPieceSprite.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -36,13 +37,14 @@ tracks/1/keys = {
 extents = Vector2( 4.29472, 6.10453 )
 
 [node name="MirrorPiece" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1.09713, 0.228569 )
 texture = ExtResource( 1 )
 hframes = 3
 frame = 2
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "idle"
