@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://assets/scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scenes/Level.gd" type="Script" id=2]
@@ -369,12 +369,18 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=38]
 points = PoolVector2Array( 0, 12.1219, 16, 12.0678, 16, 16, 0, 16 )
 
-[sub_resource type="TileSet" id=39]
+[sub_resource type="ConvexPolygonShape2D" id=39]
+points = PoolVector2Array( 16, 4, 0, 4, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=40]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="TileSet" id=41]
 0/name = "obstacles.png 0"
 0/texture = ExtResource( 7 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 32, 16 )
+0/region = Rect2( 0, 0, 64, 16 )
 0/tile_mode = 2
 0/autotile/icon_coordinate = Vector2( 0, 0 )
 0/autotile/tile_size = Vector2( 16, 16 )
@@ -402,13 +408,25 @@ points = PoolVector2Array( 0, 12.1219, 16, 12.0678, 16, 16, 0, 16 )
 "one_way_margin": 1.0,
 "shape": SubResource( 38 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 39 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 40 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=40]
+[sub_resource type="RectangleShape2D" id=42]
 extents = Vector2( 103.043, 10 )
 
-[sub_resource type="RectangleShape2D" id=41]
+[sub_resource type="RectangleShape2D" id=43]
 extents = Vector2( 61.1759, 1.76349 )
 
 [node name="Testworld" type="Node2D"]
@@ -438,7 +456,7 @@ tile_data = PoolIntArray( -1048556, 0, 4, -983029, 0, 4, -851973, 0, 4, -917501,
 [node name="deadlies" type="TileMap" parent="YSort" groups=[
 "deadly",
 ]]
-tile_set = SubResource( 39 )
+tile_set = SubResource( 41 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 0
 format = 1
@@ -528,7 +546,7 @@ zoom = Vector2( 0.25, 0.25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Rooms/Room8/MoodChange"]
 position = Vector2( 42.2117, 40.3764 )
-shape = SubResource( 40 )
+shape = SubResource( 42 )
 
 [node name="Room9" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( -268.854, 326.043 )
@@ -550,7 +568,7 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/Monologues/mono_sinking_pit"]
 position = Vector2( -34.5906, 45.9318 )
-shape = SubResource( 41 )
+shape = SubResource( 43 )
 
 [node name="Respawns" type="Node" parent="Trigger"]
 
