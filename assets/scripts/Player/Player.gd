@@ -13,6 +13,9 @@ var direction = Vector2.LEFT
 
 signal dead
 
+func _process(delta: float) -> void:
+	deadCheck()
+
 func _apply_movement() -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
 
@@ -34,5 +37,8 @@ func die() -> void:
 func gain_power(powerName: String) -> void:
 	print("gained power: "+powerName)
 
-func _on_VisibilityNotifier2D_screen_exited() -> void:
-	die()
+func deadCheck() -> void:
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.is_in_group("deadly"):
+			die()
