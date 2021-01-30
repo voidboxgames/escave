@@ -2,7 +2,8 @@ extends CanvasLayer
 
 var done: Dictionary
 var monologues: Dictionary = {
-	"no_jump": "my heart feels so heavy.. i can't even [wave]jump[/wave]",
+	"intro": "my legs can barely move with A and D",
+	"no_jump": "My heart feels so heavy.. i can't even [wave]jump[/wave]",
 	"can_jump": "get yourself together! you must try to [rainbow]jump[/rainbow]",
 	
 	"bottomless": "I'm slowly sinking into a [rainbow]bottomless[/rainbow] pit",

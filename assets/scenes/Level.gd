@@ -4,6 +4,8 @@ export(Color, RGB) var clear_color
 onready var current_room = $YSort/Rooms/Room1
 onready var current_respawn = $YSort/Rooms/Room1/Respawns/R1
 
+var current_color = Color("b8b5d0")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	VisualServer.set_default_clear_color(clear_color)
@@ -44,8 +46,8 @@ func _on_Roomchecker_timeout() -> void:
 
 func _on_MoodChange_body_entered(body: Node) -> void:
 	if body is Player:
-		var c = Color("#e16e1a")
-		$CanvasModulate.set_color(c)
+		current_color = Color("#e16e1a")
+		$CanvasModulate.set_color(current_color)
 
 ### shake logic ##
 export var decay = 0.8  # How quickly the shaking stops [0, 1].
