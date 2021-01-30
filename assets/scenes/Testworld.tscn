@@ -377,10 +377,7 @@ clear_color = Color( 0.101961, 0.109804, 0.160784, 1 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( -98.7267, -60.2411 )
-
-[node name="Player2" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( -98.7267, -60.2411 )
+position = Vector2( -81.6603, -16.0513 )
 
 [node name="gruond" type="TileMap" parent="YSort"]
 tile_set = SubResource( 35 )
@@ -515,8 +512,6 @@ autostart = true
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 [connection signal="dead" from="YSort/Player" to="." method="_on_Player_dead"]
 [connection signal="visibility_changed" from="YSort/Player" to="." method="_on_Player_visibility_changed"]
-[connection signal="dead" from="YSort/Player2" to="." method="_on_Player_dead"]
-[connection signal="visibility_changed" from="YSort/Player2" to="." method="_on_Player_visibility_changed"]
 [connection signal="body_entered" from="YSort/Rooms/Room8/MoodChange" to="." method="_on_MoodChange_body_entered"]
 [connection signal="body_entered" from="Trigger/Monologues/mono_sinking_pit" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Roomchecker" to="." method="_on_Roomchecker_timeout"]
