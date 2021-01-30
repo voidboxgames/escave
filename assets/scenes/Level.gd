@@ -46,3 +46,32 @@ func _on_MoodChange_body_entered(body: Node) -> void:
 	if body is Player:
 		var c = Color("#e16e1a")
 		$CanvasModulate.set_color(c)
+
+### shake logic ##
+export var decay = 0.8  # How quickly the shaking stops [0, 1].
+export var max_offset = Vector2(100, 75)  # Maximum hor/ver shake in pixels.
+export var max_roll = 0.1  # Maximum rotation in radians (use sparingly).
+
+var trauma = 0.0  # Current shake strength.
+var trauma_power = 2  # Trauma exponent. Use [2, 3].
+
+func add_trauma(amount):
+	trauma = min(trauma + amount, 1.0)
+
+func set_trauma(amount):
+	trauma = min(amount, 1.0)
+
+func _process(delta):
+	if trauma:
+		trauma = max(trauma - decay * delta, 0)
+		_shake_current_room()
+
+func _shake_current_room():
+	var amount = pow(trauma, trauma_power)
+	current_room.rotation = max_roll * amount * rand_range(-1, 1)
+	current_room.offset.x = max_offset.x * amount * rand_range(-1, 1)
+	current_room.offset.y = max_offset.y * amount * rand_range(-1, 1)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		set_trauma(0.2)
