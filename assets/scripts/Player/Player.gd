@@ -41,18 +41,15 @@ func _handle_move_input() -> void:
 	direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
-	).normalized()
-	velocity.x = lerp(velocity.x , direction.x * max_speed, acceleration)
+	)
 	if direction.x != 0:
 		$Body.scale.x = direction.x
+	velocity.x = lerp(velocity.x , direction.x * max_speed, acceleration)
 
 func _handle_dash_input() -> void:
 	if !gravity_enabled:
 		return
-	velocity = direction * max_speed * dash_multiplier
-	if direction.x != 0:
-		$Body.scale.x = direction.x
-
+	velocity = direction.normalized() * max_speed * dash_multiplier
 	velocity = move_and_slide(velocity, Vector2.ZERO)
 
 func die() -> void:
