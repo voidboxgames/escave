@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/shattered_mu_base_1.ogg-5aa941046be0391c5392808a5b97538e.oggstr"
+
+[deps]
+
+source_file="res://assets/music/shattered_mu_base_1.ogg"
+dest_files=[ "res://.import/shattered_mu_base_1.ogg-5aa941046be0391c5392808a5b97538e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

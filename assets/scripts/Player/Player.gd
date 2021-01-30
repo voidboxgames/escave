@@ -7,7 +7,7 @@ export(int) var max_jumps = 1
 export var jump_force = 250
 export var gravity = 800
 export(float, 0.0, 1.0) var acceleration = 0.5
-export(bool) var gravity_enabled = true 
+export(bool) var gravity_enabled = true
 
 export var can_walk = true
 export var can_jump = false
@@ -47,13 +47,13 @@ func _handle_move_input() -> void:
 var dying = false
 func die() -> void:
 	$AnimationPlayer.play("death")
-	set_physics_process(false) 
+	set_physics_process(false)
 
 func dead() -> void:
 	emit_signal("dead")
 	dying = false
-	
-	
+
+
 func respawn(pos: Vector2) -> void:
 	set_physics_process(false)
 	position = pos

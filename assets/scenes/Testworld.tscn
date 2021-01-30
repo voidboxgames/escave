@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://assets/scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scenes/Level.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/decals_ground.tres" type="Texture" id=5]
 [ext_resource path="res://assets/scenes/effects/Monolog.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/sprites/obstacles.png" type="Texture" id=7]
+[ext_resource path="res://assets/music/shattered_mu_base_1.ogg" type="AudioStream" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 0, 0, 16, 0, 16, 0, 16, 4, 4, 4, 4, 16, 0, 16 )
@@ -581,6 +582,10 @@ wait_time = 0.1
 autostart = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
 [connection signal="dead" from="YSort/Player" to="." method="_on_Player_dead"]
 [connection signal="visibility_changed" from="YSort/Player" to="." method="_on_Player_visibility_changed"]
 [connection signal="body_entered" from="YSort/Rooms/Room8/MoodChange" to="." method="_on_MoodChange_body_entered"]

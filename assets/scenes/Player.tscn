@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/beth-Sheet.png" type="Texture" id=2]
-[ext_resource path="res://assets/sounds/jump.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/sounds/land.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/jump_2.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/scripts/Player/PlayerStateMachine.gd" type="Script" id=5]
 [ext_resource path="res://assets/sprites/death-Sheet.png" type="Texture" id=6]
 
@@ -11,7 +10,7 @@
 radius = 2.30721
 height = 5.0863
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 resource_name = "death"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/Sprite:visible")
@@ -88,7 +87,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -104,7 +103,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.25
 loop = true
 tracks/0/type = "value"
@@ -120,7 +119,7 @@ tracks/0/keys = {
 "values": [ 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.25
 loop = true
 tracks/0/type = "value"
@@ -136,7 +135,7 @@ tracks/0/keys = {
 "values": [ 8 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "respawn"
 length = 0.3
 tracks/0/type = "value"
@@ -200,7 +199,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 length = 0.35
 loop = true
 tracks/0/type = "value"
@@ -252,14 +251,11 @@ one_shot = true
 [node name="Jump" type="AudioStreamPlayer" parent="PlayerStateMachine/Sounds"]
 stream = ExtResource( 3 )
 
-[node name="land" type="AudioStreamPlayer" parent="PlayerStateMachine/Sounds"]
-stream = ExtResource( 4 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/death = SubResource( 6 )
-anims/idle = SubResource( 2 )
-anims/jump_fly = SubResource( 3 )
-anims/jump_start = SubResource( 4 )
-anims/respawn = SubResource( 7 )
-anims/walk = SubResource( 5 )
+anims/death = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/jump_fly = SubResource( 4 )
+anims/jump_start = SubResource( 5 )
+anims/respawn = SubResource( 6 )
+anims/walk = SubResource( 7 )
