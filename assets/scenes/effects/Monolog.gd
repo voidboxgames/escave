@@ -5,6 +5,7 @@ var monologues: Dictionary = {
 	"intro": "How did I end up in here? Everone in this world is against me. I barely want use 'A' and 'D' to move my legs.",
 	"no_jump": "My heart feels so heavy.. i can't even [wave]jump[/wave]",
 	"can_jump": "get yourself together! you must try to [rainbow]jump[/rainbow] with 'J'",
+	"can_dash": "i can do it! i can dash [rainbow]dash[/rainbow] with 'K'!",
 
 	"bottomless": "I'm slowly sinking into a [rainbow]bottomless[/rainbow] pit",
 	"go_on": "why should i even [rainbow]go on[/rainbow]?",

@@ -10,4 +10,5 @@ func _on_HitBox_body_entered(body: Node) -> void:
 		var explode = Explode.instance()
 		explode.position = position
 		parent.add_child(explode)
+		get_parent().emit_signal("collected")
 		queue_free()
