@@ -434,7 +434,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 extents = Vector2( 10, 28.4592 )
 
 [sub_resource type="RectangleShape2D" id=43]
-extents = Vector2( 206.913, 18.246 )
+extents = Vector2( 206.913, 16.7565 )
 
 [sub_resource type="Environment" id=44]
 background_mode = 4
@@ -671,6 +671,14 @@ position = Vector2( 1049.09, 112.763 )
 [node name="R2" type="Position2D" parent="YSort/Rooms/Room17/Respawns"]
 position = Vector2( 1007.93, -10.0518 )
 
+[node name="Respawns2" type="Node" parent="YSort/Rooms/Room17"]
+
+[node name="R1" type="Position2D" parent="YSort/Rooms/Room17/Respawns2"]
+position = Vector2( 1049.09, 112.763 )
+
+[node name="R2" type="Position2D" parent="YSort/Rooms/Room17/Respawns2"]
+position = Vector2( 1007.93, -10.0518 )
+
 [node name="Room18" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( 1174.74, -287.714 )
 zoom = Vector2( 0.4, 0.4 )
@@ -678,10 +686,10 @@ zoom = Vector2( 0.4, 0.4 )
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room18"]
 
 [node name="R1" type="Position2D" parent="YSort/Rooms/Room18/Respawns"]
-position = Vector2( 1049.09, 112.763 )
+position = Vector2( 1353.36, -188.403 )
 
 [node name="R2" type="Position2D" parent="YSort/Rooms/Room18/Respawns"]
-position = Vector2( 1007.93, -10.0518 )
+position = Vector2( 1102.07, -288.617 )
 
 [node name="Room19" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( 1589.18, -288.042 )
@@ -816,9 +824,12 @@ shape = SubResource( 43 )
 position = Vector2( 1095.32, 57.3393 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/Moods/MoodChange2"]
-position = Vector2( 62.4855, 50.4808 )
+position = Vector2( 59.9527, 75.4935 )
 scale = Vector2( 1, 2.16 )
 shape = SubResource( 43 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MoodChange3" type="Area2D" parent="Trigger/Moods"]
 position = Vector2( 1097.68, 16.0032 )
