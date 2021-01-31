@@ -9,6 +9,9 @@ var current_dashes = 0
 
 signal dash
 
+func reset() -> void:
+	call_deferred("set_state", states["idle"])
+
 func _ready() -> void:
 	add_state("idle")
 	add_state("run")
@@ -18,7 +21,7 @@ func _ready() -> void:
 	call_deferred("set_state", states["idle"])
 
 func _input(event: InputEvent) -> void:
-	if animation_player.get_current_animation() == "death":
+	if parent.gravity_enabled == false:
 		return
 	if  [states.idle, states.run].has(state):
 		if event.is_action_pressed("jump"):
@@ -88,6 +91,8 @@ func _get_transition(delta):
 	return null
 
 func _dash_input() -> bool:
+	if parent.gravity_enabled == false:
+		return false
 	if Input.is_action_just_pressed("dash"):
 		if current_dashes < parent.max_dashes:
 			current_dashes += 1
