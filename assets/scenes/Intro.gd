@@ -13,3 +13,7 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		get_tree().change_scene("res://assets/scenes/title.tscn")
+
+
+func _on_Timer_timeout() -> void:
+	get_tree().change_scene("res://assets/scenes/title.tscn")
