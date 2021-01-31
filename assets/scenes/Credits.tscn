@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/slkscreb.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/scenes/Credits.gd" type="Script" id=2]
@@ -214,7 +214,48 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
+"values": [ "[center] [shake]Take care of yourself and stay healthy![/shake]" ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RichTextLabel:bbcode_text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
 "values": [ "[center] [shake]Press any key to restart ;-)[/shake]" ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.97 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "next"
+} ]
 }
 
 [node name="Control" type="Control"]
@@ -244,18 +285,8 @@ margin_right = 512.0
 margin_bottom = 300.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center] [shake]GFX / Gamedesign[/shake]
-
-Tino Goehlert
-Emma Goehlert
-Stan Domula
-Martin Benz"
-text = " GFX / Gamedesign
-
-Tino Goehlert
-Emma Goehlert
-Stan Domula
-Martin Benz"
+bbcode_text = "[center] [shake]Press any key to restart ;-)[/shake]"
+text = " Press any key to restart ;-)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -275,3 +306,4 @@ anims/a2 = SubResource( 3 )
 anims/a3 = SubResource( 4 )
 anims/a4 = SubResource( 5 )
 anims/a5 = SubResource( 6 )
+anims/a6 = SubResource( 7 )

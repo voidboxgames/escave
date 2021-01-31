@@ -1,7 +1,7 @@
 extends Control
 
 var current_anim = 1
-var max_anim = 5
+var max_anim = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
