@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://assets/scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scenes/Level.gd" type="Script" id=2]
@@ -442,7 +442,7 @@ clear_color = Color( 0.054902, 0.0509804, 0.054902, 1 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( -111.615, 372.922 )
+position = Vector2( -69.0809, 37.2267 )
 
 [node name="gruond" type="TileMap" parent="YSort"]
 tile_set = SubResource( 35 )
@@ -650,7 +650,7 @@ shape = SubResource( 43 )
 tile_data = PoolIntArray( 262128, 0, 0, 262129, 0, 0, 262130, 0, 0, 262131, 0, 0, 262132, 0, 0, 262133, 0, 0 )
 
 [node name="Bridge2" parent="Bridges" instance=ExtResource( 10 )]
-tile_data = PoolIntArray( 65534, 0, 0, 1769433, 0, 0, 1769434, 0, 0, 1769435, 0, 0, 1769436, 0, 0, 1769437, 0, 0, 1769438, 0, 0, 1769439, 0, 0, 1769440, 0, 0, 1769441, 0, 0, 1769442, 0, 0, 1769443, 0, 0, 1769444, 0, 0 )
+tile_data = PoolIntArray( 1769433, 0, 0, 1769434, 0, 0, 1769435, 0, 0, 1769436, 0, 0, 1769437, 0, 0, 1769438, 0, 0, 1769439, 0, 0, 1769440, 0, 0, 1769441, 0, 0, 1769442, 0, 0, 1769443, 0, 0, 1769444, 0, 0 )
 
 [node name="Lights" type="Node" parent="."]
 
