@@ -668,9 +668,6 @@ zoom = Vector2( 0.4, 0.4 )
 [node name="R1" type="Position2D" parent="YSort/Rooms/Room17/Respawns"]
 position = Vector2( 1049.09, 112.763 )
 
-[node name="R2" type="Position2D" parent="YSort/Rooms/Room17/Respawns"]
-position = Vector2( 1007.93, -10.0518 )
-
 [node name="Room18" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( 1174.74, -287.714 )
 zoom = Vector2( 0.4, 0.4 )
