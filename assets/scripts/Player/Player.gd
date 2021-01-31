@@ -56,6 +56,7 @@ func _handle_dash_input() -> void:
 	velocity = move_and_slide(velocity, Vector2.ZERO)
 
 func die() -> void:
+	$PlayerStateMachine/PlayerSounds.death()
 	$AnimationPlayer.play("death")
 
 func dead() -> void:
