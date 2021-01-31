@@ -9,6 +9,7 @@ var current_color = Color("b8b5d0")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	VisualServer.set_default_clear_color(clear_color)
+	$EndLayer/Endfade.color = Color("00ffffff")
 	pass # Replace with function body.
 
 func _on_Player_dead() -> void:
@@ -44,11 +45,6 @@ func _on_Roomchecker_timeout() -> void:
 		nearest_room.current = true
 		_find_nearest_respawn()
 
-func _on_MoodChange_body_entered(body: Node) -> void:
-	if body is Player:
-		current_color = Color("#e16e1a")
-		$CanvasModulate.set_color(current_color)
-
 ### shake logic ##
 export var decay = 0.8  # How quickly the shaking stops [0, 1].
 export var max_offset = Vector2(100, 75)  # Maximum hor/ver shake in pixels.
@@ -76,3 +72,17 @@ func _shake_current_room():
 
 func _on_Player_dash() -> void:
 	set_trauma(0.18)
+
+func _on_MoodChange_body_entered(body: Node) -> void:
+	if body is Player:
+		current_color = Color("#e16e1a")
+		$CanvasModulate.set_color(current_color)
+
+
+func _on_MoodChange3_body_entered(body: Node) -> void:
+	if body is Player:
+		current_color = Color("b8b5d0")
+		$CanvasModulate.set_color(current_color)
+
+func end() -> void:
+	get_tree().change_scene("res://assets/scenes/Credits.tscn")
