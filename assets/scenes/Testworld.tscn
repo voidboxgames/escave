@@ -442,7 +442,7 @@ clear_color = Color( 0.054902, 0.0509804, 0.054902, 1 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( -69.0809, 37.2267 )
+position = Vector2( -13.0292, 33.4783 )
 
 [node name="gruond" type="TileMap" parent="YSort"]
 tile_set = SubResource( 35 )
@@ -627,7 +627,7 @@ script = ExtResource( 11 )
 [node name="Monologues" type="Node" parent="Trigger"]
 
 [node name="MonologTrigger" parent="Trigger/Monologues" instance=ExtResource( 9 )]
-position = Vector2( -100.071, 46.1145 )
+position = Vector2( -12.7244, 45.7658 )
 scale = Vector2( 0.379863, 0.194492 )
 MonologID = "intro"
 MonologuePath = NodePath("../../../Monolog")
