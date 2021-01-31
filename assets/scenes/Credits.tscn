@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/slkscreb.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/scenes/Credits.gd" type="Script" id=2]
+[ext_resource path="res://assets/music/shattered_happy_end.ogg" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -307,3 +308,7 @@ anims/a3 = SubResource( 4 )
 anims/a4 = SubResource( 5 )
 anims/a5 = SubResource( 6 )
 anims/a6 = SubResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true

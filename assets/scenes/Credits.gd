@@ -5,7 +5,8 @@ var max_anim = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	BackgroundMusic.stream_paused = true
+	pass
 
 func _unhandled_input(event: InputEvent) -> void:
 	if current_anim == max_anim:

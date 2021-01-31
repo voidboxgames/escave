@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/shattered_happy_end.ogg-ce93763384b0c6a5435d6cbc27c73a9f.oggstr"
+
+[deps]
+
+source_file="res://assets/music/shattered_happy_end.ogg"
+dest_files=[ "res://.import/shattered_happy_end.ogg-ce93763384b0c6a5435d6cbc27c73a9f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
