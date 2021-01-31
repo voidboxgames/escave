@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/sounds/pickup_1.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 42
+size = 64
 outline_size = 1
 outline_color = Color( 0.113725, 0.447059, 0.909804, 1 )
 font_data = ExtResource( 1 )
@@ -108,7 +108,7 @@ __meta__ = {
 }
 
 [node name="title-sheet" type="Sprite" parent="."]
-position = Vector2( 508.177, 344.128 )
+position = Vector2( 505.675, 255.565 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 hframes = 2
@@ -125,13 +125,15 @@ margin_right = 512.0
 margin_bottom = 179.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center] [shake]SCATTERED [/shake]"
-text = " SCATTERED "
+bbcode_text = "[center] [shake]SHATTERED [/shake]"
+text = " SHATTERED "
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 6.10352e-05

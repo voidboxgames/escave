@@ -1,7 +1,7 @@
 extends Control
 
 func _unhandled_input(event: InputEvent) -> void:
-	if !$AnimationPlayer.get_current_animation() == "fade":
+	if event is InputEventKey and !$AnimationPlayer.get_current_animation() == "fade":
 		$AnimationPlayer.play("crack")
 
 func start_game() -> void:

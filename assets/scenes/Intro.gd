@@ -11,4 +11,5 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _unhandled_input(event: InputEvent) -> void:
-	get_tree().change_scene("res://assets/scenes/title.tscn")
+	if event is InputEventKey:
+		get_tree().change_scene("res://assets/scenes/title.tscn")
