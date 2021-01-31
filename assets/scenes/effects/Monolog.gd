@@ -5,7 +5,7 @@ var monologues: Dictionary = {
 	"intro": "my legs can barely move with A and D",
 	"no_jump": "My heart feels so heavy.. i can't even [wave]jump[/wave]",
 	"can_jump": "get yourself together! you must try to [rainbow]jump[/rainbow]",
-	
+
 	"bottomless": "I'm slowly sinking into a [rainbow]bottomless[/rainbow] pit",
 	"go_on": "why should i even [rainbow]go on[/rainbow]?",
 	"the_fall": "it is too deep, i can't make it",
@@ -14,7 +14,7 @@ var monologues: Dictionary = {
 
 func visible(val: bool) -> void:
 	$TextureRect.visible = val
-	
+
 func _ready() -> void:
 	visible(false)
 	pause_mode = PAUSE_MODE_PROCESS

@@ -78,3 +78,7 @@ func deadCheck() -> void:
 			var collision = get_slide_collision(i)
 			if collision.collider.is_in_group("deadly"):
 				die()
+
+
+func _on_PlayerStateMachine_dash() -> void:
+	emit_signal("dash")

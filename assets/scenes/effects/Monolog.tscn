@@ -68,8 +68,8 @@ custom_fonts/bold_font = SubResource( 2 )
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0.67451, 0.854902, 0.976471, 1 )
 bbcode_enabled = true
-bbcode_text = "[center]press jump to continue"
-text = "press jump to continue"
+bbcode_text = "[center]SPACE to continue"
+text = "SPACE to continue"
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""

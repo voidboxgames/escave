@@ -7,6 +7,8 @@ onready var animation_player = parent.get_node("AnimationPlayer")
 
 var current_dashes = 0
 
+signal dash
+
 func _ready() -> void:
 	add_state("idle")
 	add_state("run")
@@ -105,7 +107,7 @@ func _enter_state(new_state, old_state):
 			if [states.run, states.idle].has(old_state):
 				coyote_timer.start()
 		states.dash:
-			parent.emit_signal("dash")
+			emit_signal("dash")
 			$PlayerSounds.dash()
 			dash_timer.start()
 

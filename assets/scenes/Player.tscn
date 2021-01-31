@@ -269,4 +269,5 @@ anims/jump_fly = SubResource( 4 )
 anims/jump_start = SubResource( 5 )
 anims/respawn = SubResource( 6 )
 anims/walk = SubResource( 7 )
+[connection signal="dash" from="PlayerStateMachine" to="." method="_on_PlayerStateMachine_dash"]
 [connection signal="timeout" from="PlayerStateMachine/DashTimer" to="PlayerStateMachine" method="_on_DashTimer_timeout"]
