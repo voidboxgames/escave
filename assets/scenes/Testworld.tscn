@@ -606,6 +606,10 @@ position = Vector2( -636.204, 398.656 )
 position = Vector2( 150.546, -27.8675 )
 power = 2
 
+[node name="MirrorPiece3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 103.016, 36.2292 )
+power = 4
+
 [node name="MirrorPiece2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 447.05, -73.9846 )
 power = 3

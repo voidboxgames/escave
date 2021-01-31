@@ -3,6 +3,7 @@ extends KinematicBody2D
 class_name Player
 
 export var max_speed = 100
+export var current_max_speed = 15
 export(float) var dash_multiplier = 4.0
 export(int) var max_dashes = 0
 export var jump_force = 200
@@ -22,7 +23,8 @@ enum powers {
 	NONE,
 	JUMP,
 	DASH,
-	DOUBLE_DASH
+	DOUBLE_DASH,
+	WALK_NORMAL
 }
 
 func _process(delta: float) -> void:
@@ -45,12 +47,12 @@ func _handle_move_input() -> void:
 	)
 	if direction.x != 0:
 		$Body.scale.x = direction.x
-	velocity.x = lerp(velocity.x , direction.x * max_speed, acceleration)
+	velocity.x = lerp(velocity.x , direction.x * current_max_speed, acceleration)
 
 func _handle_dash_input() -> void:
 	if !gravity_enabled:
 		return
-	velocity = direction.normalized() * max_speed * dash_multiplier
+	velocity = direction.normalized() * current_max_speed * dash_multiplier
 	velocity = move_and_slide(velocity, Vector2.ZERO)
 
 func die() -> void:
@@ -71,6 +73,8 @@ func gain_power(power) -> void:
 			max_dashes = 1
 		powers.DOUBLE_DASH:
 			max_dashes = 2
+		powers.WALK_NORMAL:
+			current_max_speed = max_speed
 
 func deadCheck() -> void:
 	if gravity_enabled:
