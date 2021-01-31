@@ -86,3 +86,4 @@ func _on_MoodChange3_body_entered(body: Node) -> void:
 
 func end() -> void:
 	get_tree().change_scene("res://assets/scenes/Credits.tscn")
+

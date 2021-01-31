@@ -17,3 +17,4 @@ func _on_Bridge1Trigger2_body_shape_entered(body_id: int, body: Node, body_shape
 
 func _on_Mirror_finished() -> void:
 	get_parent().get_node("AnimationPlayer").play("End")
+

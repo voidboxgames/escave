@@ -6,6 +6,7 @@ var monologues: Dictionary = {
 	"no_jump": "My heart feels so heavy.. i can't even [wave]jump[/wave]",
 	"can_jump": "get yourself together! you must try to [rainbow]jump[/rainbow] with 'J'",
 	"can_dash": "i can do it! i can dash [rainbow]dash[/rainbow] with 'K'!",
+	"can_ddash": "can i.. can i even [rainbow]double dash[/rainbow]?",
 
 	"bottomless": "I'm slowly sinking into a [rainbow]bottomless[/rainbow] pit",
 	"go_on": "why should i even [rainbow]go on[/rainbow]?",
