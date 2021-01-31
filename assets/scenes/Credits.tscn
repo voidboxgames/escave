@@ -191,7 +191,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "a5"
-length = 2.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect2:color")
 tracks/0/interp = 1
@@ -215,6 +215,20 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ "[center] [shake]Take care of yourself and stay healthy![/shake]" ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "next"
+} ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -242,20 +256,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ "[center] [shake]Press any key to restart ;-)[/shake]" ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 2.97 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "next"
-} ]
 }
 
 [node name="Control" type="Control"]
@@ -285,8 +285,8 @@ margin_right = 512.0
 margin_bottom = 300.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center] [shake]Press any key to restart ;-)[/shake]"
-text = " Press any key to restart ;-)"
+bbcode_text = "[center] [shake]Take care of yourself and stay healthy![/shake]"
+text = " Take care of yourself and stay healthy!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
