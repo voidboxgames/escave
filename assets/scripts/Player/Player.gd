@@ -57,14 +57,21 @@ func _handle_dash_input() -> void:
 
 func die() -> void:
 	$PlayerStateMachine/PlayerSounds.death()
+	$Body/Sprite.visible = false
+	$Body/DeathSprite.visible = true
+	gravity_enabled = false
 	$AnimationPlayer.play("death")
-
-func dead() -> void:
-	emit_signal("dead")
+	yield(get_tree().create_timer(0.5), "timeout")
+	position = get_parent().get_parent().current_respawn.position
+	$AnimationPlayer.play("respawn")
+	yield(get_tree().create_timer(0.5), "timeout")
+	gravity_enabled = true
+	$Body/Sprite.visible = true
+	$Body/DeathSprite.visible = false
+	$PlayerStateMachine.reset()
 
 func respawn(pos: Vector2) -> void:
-	position = pos
-	$AnimationPlayer.play("respawn")
+	pass
 
 func gain_power(power) -> void:
 	match power:
