@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://assets/scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scenes/Level.gd" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://assets/decals_ground.tres" type="Texture" id=5]
 [ext_resource path="res://assets/scenes/effects/Monolog.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/sprites/obstacles.png" type="Texture" id=7]
-[ext_resource path="res://assets/music/shattered_music_base_2_seamless.ogg" type="AudioStream" id=8]
 [ext_resource path="res://assets/scenes/MonologTrigger.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/scenes/Bridge.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/scenes/Trigger.gd" type="Script" id=11]
@@ -679,11 +678,6 @@ autostart = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.721569, 0.709804, 0.815686, 1 )
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-pause_mode = 2
-stream = ExtResource( 8 )
-autoplay = true
 [connection signal="dash" from="YSort/Player" to="." method="_on_Player_dash"]
 [connection signal="dead" from="YSort/Player" to="." method="_on_Player_dead"]
 [connection signal="visibility_changed" from="YSort/Player" to="." method="_on_Player_visibility_changed"]

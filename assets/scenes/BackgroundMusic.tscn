@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/music/shattered_music_base_2_seamless.ogg" type="AudioStream" id=1]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+pause_mode = 2
+stream = ExtResource( 1 )
+autoplay = true
