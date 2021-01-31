@@ -4,6 +4,7 @@ extends Node
 
 
 func _on_Dash_collected() -> void:
+	get_parent().current_respawn = get_parent().get_node("YSort/Rooms/Room13/Respawns/R2")
 	get_parent().get_node("Monolog").play("can_dash")
 
 
