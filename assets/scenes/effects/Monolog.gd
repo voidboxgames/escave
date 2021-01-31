@@ -20,7 +20,7 @@ func _ready() -> void:
 	pause_mode = PAUSE_MODE_PROCESS
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_pressed("jump"):
+	if Input.is_key_pressed(KEY_SPACE):
 		get_tree().paused = false
 		$TextureRect/Label.bbcode_text = ""
 		visible(false)
