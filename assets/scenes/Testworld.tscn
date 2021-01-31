@@ -641,7 +641,7 @@ MonologuePath = NodePath("../../../Monolog")
 [node name="MonologTrigger5" parent="Trigger/Monologues" instance=ExtResource( 9 )]
 position = Vector2( -154.834, -98.862 )
 scale = Vector2( 0.648873, 0.259933 )
-MonologID = "can_jump"
+MonologID = "the_fall"
 MonologuePath = NodePath("../../../Monolog")
 
 [node name="MonologTrigger4" parent="Trigger/Monologues" instance=ExtResource( 9 )]
