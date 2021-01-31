@@ -723,7 +723,7 @@ script = ExtResource( 8 )
 position = Vector2( -885.536, 380.539 )
 power = 2
 
-[node name="MirrorPiece3" parent="MirrorPieces" instance=ExtResource( 3 )]
+[node name="FastWalk" parent="MirrorPieces" instance=ExtResource( 3 )]
 position = Vector2( 99.5934, 39.6518 )
 power = 4
 
@@ -899,6 +899,7 @@ position = Vector2( 1754, -305.181 )
 [connection signal="dead" from="YSort/Player" to="." method="_on_Player_dead"]
 [connection signal="visibility_changed" from="YSort/Player" to="." method="_on_Player_visibility_changed"]
 [connection signal="collected" from="MirrorPieces/Dash" to="MirrorPieces" method="_on_Dash_collected"]
+[connection signal="collected" from="MirrorPieces/FastWalk" to="MirrorPieces" method="_on_FastWalk_collected"]
 [connection signal="collected" from="MirrorPieces/DoubleDash" to="MirrorPieces" method="_on_DoubleDash_collected"]
 [connection signal="body_shape_entered" from="Trigger/Bridge1Trigger" to="Trigger" method="_on_Area2D_body_shape_entered"]
 [connection signal="body_shape_entered" from="Trigger/Bridge1Trigger2" to="Trigger" method="_on_Bridge1Trigger2_body_shape_entered"]
