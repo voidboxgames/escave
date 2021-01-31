@@ -1,8 +1,6 @@
 extends Control
 
 func _ready() -> void:
-	BackgroundMusic.autoplay = true
-	BackgroundMusic.stream_paused = false
 	$RichTextLabel2.visible = true
 
 func _unhandled_input(event: InputEvent) -> void:

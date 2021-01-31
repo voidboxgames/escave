@@ -8,6 +8,9 @@ var current_color = Color("b8b5d0")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	BackgroundMusic.autoplay = true
+	BackgroundMusic.stream_paused = false
+	BackgroundMusic.play()
 	VisualServer.set_default_clear_color(clear_color)
 	$EndLayer/Endfade.color = Color("00ffffff")
 	pass # Replace with function body.
