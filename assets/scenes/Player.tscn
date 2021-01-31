@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/beth-Sheet.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/sounds/dash_1.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/scripts/Player/PlayerStateMachine.gd" type="Script" id=5]
 [ext_resource path="res://assets/sprites/death-Sheet.png" type="Texture" id=6]
+[ext_resource path="res://assets/scenes/PlayerSounds.gd" type="Script" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.30721
@@ -251,12 +252,13 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
-[node name="Sounds" type="Node" parent="PlayerStateMachine"]
+[node name="PlayerSounds" type="Node" parent="PlayerStateMachine"]
+script = ExtResource( 7 )
 
-[node name="Jump" type="AudioStreamPlayer" parent="PlayerStateMachine/Sounds"]
+[node name="Jump" type="AudioStreamPlayer" parent="PlayerStateMachine/PlayerSounds"]
 stream = ExtResource( 3 )
 
-[node name="Dash" type="AudioStreamPlayer" parent="PlayerStateMachine/Sounds"]
+[node name="Dash" type="AudioStreamPlayer" parent="PlayerStateMachine/PlayerSounds"]
 stream = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
