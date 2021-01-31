@@ -8,7 +8,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _unhandled_input(event: InputEvent) -> void:
-	if current_anim == max_anim: 
+	if current_anim == max_anim:
 		get_tree().change_scene("res://assets/scenes/Intro.tscn")
 
 func next() -> void:
