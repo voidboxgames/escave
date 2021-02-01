@@ -492,7 +492,10 @@ clear_color = Color( 0.054902, 0.0509804, 0.054902, 1 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 16.1499, -11.6742 )
+position = Vector2( 8.92972, -141.353 )
+current_max_speed = 100
+max_dashes = 2
+can_jump = true
 
 [node name="gruond" type="TileMap" parent="YSort"]
 tile_set = SubResource( 35 )
@@ -610,6 +613,12 @@ position = Vector2( -268.854, 326.043 )
 zoom = Vector2( 0.25, 0.25 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room9"]
+
+[node name="R1" type="Position2D" parent="YSort/Rooms/Room9/Respawns"]
+position = Vector2( -206.861, 365 )
+
+[node name="R2" type="Position2D" parent="YSort/Rooms/Room9/Respawns"]
+position = Vector2( -375.939, 371.81 )
 
 [node name="Room11" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( -7.78917, 356.309 )
