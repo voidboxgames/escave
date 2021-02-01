@@ -374,13 +374,13 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 12, 16, 12 )
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=38]
-points = PoolVector2Array( 0, 12.1219, 16, 12.0678, 16, 16, 0, 16 )
+points = PoolVector2Array( 1, 12, 15, 12, 15, 16, 1, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=39]
-points = PoolVector2Array( 16, 4, 0, 4, 0, 0, 16, 0 )
+points = PoolVector2Array( 15, 4, 1, 4, 1, 0, 15, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=40]
-points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+points = PoolVector2Array( 0, 2, 16, 2, 16, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=41]
 0/name = "obstacles.png 0"

@@ -10,8 +10,8 @@
 [ext_resource path="res://assets/sounds/death_1.wav" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 2.30721
-height = 5.0863
+radius = 1.57842
+height = 2.92251
 
 [sub_resource type="Animation" id=2]
 resource_name = "death"
@@ -126,7 +126,7 @@ hframes = 3
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2.18039 )
+position = Vector2( 0, 4.0845 )
 shape = SubResource( 1 )
 
 [node name="PlayerStateMachine" type="Node" parent="."]
