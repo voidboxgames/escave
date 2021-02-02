@@ -732,7 +732,7 @@ position = Vector2( 99.5934, 39.6518 )
 power = 4
 
 [node name="DoubleDash" parent="MirrorPieces" instance=ExtResource( 3 )]
-position = Vector2( 616.324, 292.045 )
+position = Vector2( 615.314, 297.092 )
 power = 3
 
 [node name="MirrorPiece_Jump" parent="MirrorPieces" instance=ExtResource( 3 )]
