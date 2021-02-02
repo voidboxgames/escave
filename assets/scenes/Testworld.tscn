@@ -492,10 +492,8 @@ clear_color = Color( 0.054902, 0.0509804, 0.054902, 1 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 8.92972, -141.353 )
-current_max_speed = 100
-max_dashes = 2
-can_jump = true
+position = Vector2( 16.4186, -11.2119 )
+current_max_speed = 20
 
 [node name="gruond" type="TileMap" parent="YSort"]
 tile_set = SubResource( 35 )
@@ -738,7 +736,7 @@ position = Vector2( 616.324, 292.045 )
 power = 3
 
 [node name="MirrorPiece_Jump" parent="MirrorPieces" instance=ExtResource( 3 )]
-position = Vector2( -570.944, 137.056 )
+position = Vector2( -583.958, 136.423 )
 power = 1
 
 [node name="Monolog" parent="." instance=ExtResource( 6 )]
@@ -789,12 +787,6 @@ script = ExtResource( 11 )
 position = Vector2( 16.5847, -0.331966 )
 scale = Vector2( 0.379863, 0.194492 )
 MonologID = "intro"
-MonologuePath = NodePath("../../../Monolog")
-
-[node name="MonologTrigger3" parent="Trigger/Monologues" instance=ExtResource( 9 )]
-position = Vector2( -576.212, 141.434 )
-scale = Vector2( 0.648873, 0.259933 )
-MonologID = "can_jump"
 MonologuePath = NodePath("../../../Monolog")
 
 [node name="Bridge1Trigger" type="Area2D" parent="Trigger"]
@@ -916,6 +908,7 @@ position = Vector2( 1754, -305.181 )
 [connection signal="collected" from="MirrorPieces/Dash" to="MirrorPieces" method="_on_Dash_collected"]
 [connection signal="collected" from="MirrorPieces/FastWalk" to="MirrorPieces" method="_on_FastWalk_collected"]
 [connection signal="collected" from="MirrorPieces/DoubleDash" to="MirrorPieces" method="_on_DoubleDash_collected"]
+[connection signal="collected" from="MirrorPieces/MirrorPiece_Jump" to="MirrorPieces" method="_on_MirrorPiece_Jump_collected"]
 [connection signal="body_shape_entered" from="Trigger/Bridge1Trigger" to="Trigger" method="_on_Area2D_body_shape_entered"]
 [connection signal="body_shape_entered" from="Trigger/Bridge1Trigger2" to="Trigger" method="_on_Bridge1Trigger2_body_shape_entered"]
 [connection signal="body_entered" from="Trigger/Moods/MoodChange" to="." method="_on_MoodChange_body_entered"]

@@ -14,3 +14,7 @@ func _on_DoubleDash_collected() -> void:
 
 func _on_FastWalk_collected() -> void:
 	get_parent().get_node("Monolog").play("can_walk_fast")
+
+
+func _on_MirrorPiece_Jump_collected() -> void:
+	get_parent().get_node("Monolog").play("can_jump")
