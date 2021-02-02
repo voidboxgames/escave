@@ -11,7 +11,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 1.57842
-height = 2.92251
+height = 5.09862
 
 [sub_resource type="Animation" id=2]
 resource_name = "death"
@@ -126,7 +126,7 @@ hframes = 3
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 4.0845 )
+position = Vector2( 0, 2.92843 )
 shape = SubResource( 1 )
 
 [node name="PlayerStateMachine" type="Node" parent="."]
