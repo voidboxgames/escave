@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://assets/scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scenes/Level.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/sprites/light2.png" type="Texture" id=12]
 [ext_resource path="res://assets/scenes/Fireball.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/scenes/Mirror.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/scenes/Helper/Room.gd" type="Script" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 0, 0, 16, 0, 16, 0, 16, 4, 4, 4, 4, 16, 0, 16 )
@@ -525,6 +526,7 @@ __meta__ = {
 position = Vector2( -0.218735, 13.343 )
 current = true
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room1"]
 
@@ -537,6 +539,7 @@ position = Vector2( 104.323, 32.4334 )
 [node name="Room2" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( 258.492, -33.8085 )
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room2"]
 
@@ -549,6 +552,7 @@ position = Vector2( 357.97, -75.8076 )
 [node name="Room3" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( 509.476, -124.367 )
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room3"]
 
@@ -561,6 +565,7 @@ position = Vector2( 408.454, -161.331 )
 [node name="Room4" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( 250.614, -202.821 )
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room4"]
 
@@ -573,6 +578,7 @@ position = Vector2( 133.794, -157.898 )
 [node name="Room5" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( -8.03415, -163.06 )
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room5"]
 
@@ -585,30 +591,35 @@ position = Vector2( -123.7, -108.116 )
 [node name="Room6" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( -267.728, -130.167 )
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room6"]
 
 [node name="Room7" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( -267.728, 21.4097 )
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room7"]
 
 [node name="Room10" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( -528.582, 99.0955 )
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room10"]
 
 [node name="Room8" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( -268.38, 174.052 )
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room8"]
 
 [node name="Room9" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( -268.854, 326.043 )
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room9"]
 
@@ -621,6 +632,7 @@ position = Vector2( -375.939, 371.81 )
 [node name="Room11" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( -7.78917, 356.309 )
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room11"]
 
@@ -633,6 +645,7 @@ position = Vector2( 109.08, 389.79 )
 [node name="Room14" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( 329.003, 311.203 )
 zoom = Vector2( 0.4, 0.4 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room14"]
 
@@ -645,6 +658,7 @@ position = Vector2( 485.408, 313.443 )
 [node name="Room15" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( 741.424, 292.263 )
 zoom = Vector2( 0.4, 0.4 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room15"]
 
@@ -657,6 +671,7 @@ position = Vector2( 907.276, 261.401 )
 [node name="Room16" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( 1153.79, 199.114 )
 zoom = Vector2( 0.4, 0.4 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room16"]
 
@@ -669,6 +684,7 @@ position = Vector2( 1325.37, 200.964 )
 [node name="Room17" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( 1160.54, -43.9406 )
 zoom = Vector2( 0.4, 0.4 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room17"]
 
@@ -678,6 +694,7 @@ position = Vector2( 1232.38, 54.81 )
 [node name="Room18" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( 1174.74, -287.714 )
 zoom = Vector2( 0.4, 0.4 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room18"]
 
@@ -690,6 +707,7 @@ position = Vector2( 1102.07, -288.617 )
 [node name="Room19" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( 1589.18, -288.042 )
 zoom = Vector2( 0.4, 0.4 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room19"]
 
@@ -699,6 +717,7 @@ position = Vector2( 1401.75, -270.696 )
 [node name="Room12" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( -527.231, 362.551 )
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room12"]
 
@@ -711,6 +730,7 @@ position = Vector2( -638.142, 382.392 )
 [node name="Room13" type="Camera2D" parent="YSort/Rooms"]
 position = Vector2( -784.216, 361.684 )
 zoom = Vector2( 0.25, 0.25 )
+script = ExtResource( 15 )
 
 [node name="Respawns" type="Node" parent="YSort/Rooms/Room13"]
 
@@ -814,12 +834,9 @@ shape = SubResource( 43 )
 position = Vector2( 1095.32, 57.3393 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/Moods/MoodChange2"]
-position = Vector2( 59.9527, 75.4935 )
+position = Vector2( 60.4693, 66.4525 )
 scale = Vector2( 1, 2.16 )
 shape = SubResource( 43 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="MoodChange3" type="Area2D" parent="Trigger/Moods"]
 position = Vector2( 1097.68, 16.0032 )

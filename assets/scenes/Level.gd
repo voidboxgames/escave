@@ -1,6 +1,9 @@
 extends Node2D
 
 export(Color, RGB) var clear_color
+
+onready var rooms = $YSort/Rooms.get_children()
+onready var player = $YSort/Player
 onready var current_room = $YSort/Rooms/Room1
 onready var current_respawn = $YSort/Rooms/Room1/Respawns/R1
 
@@ -32,19 +35,19 @@ func _find_nearest_respawn() -> void:
 		if nearest_respawn != current_respawn && nearest_respawn != null:
 			current_respawn = nearest_respawn
 
-func _on_Roomchecker_timeout() -> void:
-	var last_distance: float = 1000000
-	var nearest_room = null
-	for room in $YSort/Rooms.get_children():
-		var distance = room.get_position().distance_to($YSort/Player.position)
-		if distance < last_distance:
-			nearest_room = room
-			last_distance = distance
+func _activate_room(room: Camera2D) -> void:
+	current_room = room
+	room.make_current()
+	_find_nearest_respawn()
+	
 
-	if nearest_room != current_room && nearest_room != null:
-		current_room = nearest_room
-		nearest_room.current = true
-		_find_nearest_respawn()
+func _on_Roomchecker_timeout() -> void:
+	if current_room.rect.has_point(player.position):
+		#still in old room.. this way, overlapping will work ;-)
+		return
+	for room in rooms:
+		if room.rect.has_point(player.position):
+			_activate_room(room)
 
 ### shake logic ##
 export var decay = 0.8  # How quickly the shaking stops [0, 1].
