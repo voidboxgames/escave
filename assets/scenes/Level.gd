@@ -6,7 +6,7 @@ onready var rooms = $YSort/Rooms.get_children()
 onready var player = $YSort/Player
 onready var current_room = $YSort/Rooms/Room1
 onready var current_respawn = $YSort/Rooms/Room1/Respawns/R1
-
+onready var PLAYER = preload("res://assets/scenes/Player.tscn")
 var current_color = Color("b8b5d0")
 
 func _ready() -> void:
@@ -16,8 +16,8 @@ func _ready() -> void:
 	VisualServer.set_default_clear_color(clear_color)
 	$EndLayer/Endfade.color = Color("00ffffff")
 
-func _on_Player_dead() -> void:
-	$YSort/Player.respawn(current_respawn.position)
+func _on_Player_dead(player: Player) -> void:
+	player.respawn(current_respawn.global_position)
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body is Player:
@@ -39,9 +39,11 @@ func _activate_room(room: Camera2D) -> void:
 	current_room = room
 	room.make_current()
 	_find_nearest_respawn()
-	
+
 
 func _on_Roomchecker_timeout() -> void:
+	if player == null:
+		return
 	if current_room.rect.has_point(player.position):
 		#still in old room.. this way, overlapping will work ;-)
 		return

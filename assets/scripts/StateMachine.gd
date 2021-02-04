@@ -1,7 +1,5 @@
 extends Node
 
-class_name StateMachine
-
 var state = null setget set_state
 var prev_state = null
 var states = {}
