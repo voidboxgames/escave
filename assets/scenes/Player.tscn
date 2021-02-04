@@ -2,11 +2,11 @@
 
 [ext_resource path="res://assets/scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/beth-Sheet.png" type="Texture" id=2]
-[ext_resource path="res://assets/scripts/Player/Air.gd" type="Script" id=3]
-[ext_resource path="res://assets/scripts/Player/Dash.gd" type="Script" id=4]
+[ext_resource path="res://assets/scripts/Player/States/Air.gd" type="Script" id=3]
+[ext_resource path="res://assets/scripts/Player/States/Dash.gd" type="Script" id=4]
 [ext_resource path="res://assets/scripts/Player/StateMachine.gd" type="Script" id=5]
-[ext_resource path="res://assets/scripts/Player/Idle.gd" type="Script" id=6]
-[ext_resource path="res://assets/scripts/Player/Run.gd" type="Script" id=9]
+[ext_resource path="res://assets/scripts/Player/States/Idle.gd" type="Script" id=6]
+[ext_resource path="res://assets/scripts/Player/States/Run.gd" type="Script" id=9]
 [ext_resource path="res://assets/scripts/Player/Body.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]

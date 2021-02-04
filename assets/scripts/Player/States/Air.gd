@@ -44,4 +44,5 @@ func physics_update(delta: float) -> void:
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 
 func _do_jump():
-	player.velocity.y = -player.jump_force
+	if player.can_jump:
+		player.velocity.y = -player.jump_force

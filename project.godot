@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "State",
 "class": "PlayerState",
 "language": "GDScript",
-"path": "res://assets/scripts/Player/PlayerState.gd"
+"path": "res://assets/scripts/Player/States/PlayerState.gd"
 }, {
 "base": "Camera2D",
 "class": "Room",
@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
-"path": "res://assets/scripts/Player/State.gd"
+"path": "res://assets/scripts/Player/States/State.gd"
 }, {
 "base": "Node",
 "class": "StateMachine",
