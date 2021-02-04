@@ -23,6 +23,8 @@ func _physics_process(delta: float) -> void:
 func transition_to(state_name: String, msg := {}) -> void:
 	if not has_node(state_name):
 		return
+	print("leave %s" % state.name)
 	state.leave()
 	state = get_node(state_name)
+	print("enter %s" % state.name)
 	state.enter(msg)

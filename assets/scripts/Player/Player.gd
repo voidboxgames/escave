@@ -17,6 +17,9 @@ onready var body: = $Body
 onready var collision_shape = $CollisionShape2D
 
 var velocity = Vector2.ZERO
+var direction = Vector2.ZERO
+var last_direction = Vector2.RIGHT
+var current_dashes: int = 0
 
 signal dead(Player)
 signal dash
@@ -29,8 +32,19 @@ enum powers {
 	WALK_NORMAL
 }
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	deadCheck()
+
+func can_dash() -> bool:
+	return current_dashes < max_dashes
+
+func update_direction_input() -> void:
+	direction = Vector2(
+		Input.get_action_strength("right") - Input.get_action_strength("left"),
+		Input.get_action_strength("down") - Input.get_action_strength("up")
+	)
+	if direction != Vector2.ZERO:
+		last_direction = direction
 
 func deadCheck() -> void:
 	for i in get_slide_count():
