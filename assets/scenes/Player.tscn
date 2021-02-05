@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/beth-Sheet.png" type="Texture" id=2]
@@ -6,8 +6,11 @@
 [ext_resource path="res://assets/scripts/Player/States/Dash.gd" type="Script" id=4]
 [ext_resource path="res://assets/scripts/Player/StateMachine.gd" type="Script" id=5]
 [ext_resource path="res://assets/scripts/Player/States/Idle.gd" type="Script" id=6]
+[ext_resource path="res://assets/sounds/death_1.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/scripts/Player/States/Run.gd" type="Script" id=9]
 [ext_resource path="res://assets/scripts/Player/Body.gd" type="Script" id=10]
+[ext_resource path="res://assets/sounds/jump_2.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/sounds/dash_1.wav" type="AudioStream" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 1.57842
@@ -115,13 +118,16 @@ script = ExtResource( 9 )
 [node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
 
+[node name="CoyoteTimer" type="Timer" parent="StateMachine/Air"]
+wait_time = 0.2
+one_shot = true
+
 [node name="JumpTimer" type="Timer" parent="StateMachine/Air"]
 wait_time = 0.1
 one_shot = true
 
-[node name="CoyoteTimer" type="Timer" parent="StateMachine/Air"]
-wait_time = 0.2
-one_shot = true
+[node name="Jump" type="AudioStreamPlayer" parent="StateMachine/Air"]
+stream = ExtResource( 11 )
 
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource( 4 )
@@ -129,3 +135,10 @@ script = ExtResource( 4 )
 [node name="DashTimer" type="Timer" parent="StateMachine/Dash"]
 wait_time = 0.1
 one_shot = true
+
+[node name="Dash" type="AudioStreamPlayer" parent="StateMachine/Dash"]
+stream = ExtResource( 12 )
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+[connection signal="transitioned" from="StateMachine" to="." method="_on_StateMachine_transitioned"]

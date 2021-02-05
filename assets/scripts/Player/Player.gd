@@ -3,7 +3,7 @@ extends KinematicBody2D
 class_name Player
 
 export var max_speed = 100
-export var current_max_speed = 15
+export var current_max_speed = 20
 export(float) var dash_multiplier = 4.0
 export(int) var max_dashes = 0
 export var jump_force = 205
@@ -15,6 +15,7 @@ export var can_jump = false
 onready var animations: AnimationPlayer = $AnimationPlayer
 onready var body: = $Body
 onready var collision_shape = $CollisionShape2D
+onready var death_sound = $Death
 
 var velocity = Vector2.ZERO
 var direction = Vector2.ZERO
@@ -60,6 +61,7 @@ func calculate_x_velocity(vel: Vector2, direction_x: float) -> Vector2:
 	)
 
 func die() -> void:
+	Audio.rand_pitch_play(death_sound)
 	emit_signal("dead", self)
 
 func respawn(pos: Vector2):
@@ -76,5 +78,6 @@ func gain_power(power) -> void:
 		powers.WALK_NORMAL:
 			current_max_speed = max_speed
 
-func _on_PlayerStateMachine_dash() -> void:
-	emit_signal("dash")
+func _on_StateMachine_transitioned(old_state, new_state) -> void:
+	if new_state == "Dash":
+		emit_signal("dash")

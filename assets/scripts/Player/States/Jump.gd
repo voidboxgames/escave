@@ -2,9 +2,6 @@ extends PlayerState
 
 onready var jump_timer: Timer = $JumpTimer
 onready var coyote_timer = $CoyoteTimer
-onready var jump_sound = $Jump
-
-signal jumped
 
 func enter(msg := {}) -> void:
 	player.animations.play("air")
@@ -47,5 +44,5 @@ func physics_update(delta: float) -> void:
 
 func _do_jump():
 	if player.can_jump:
-		Audio.rand_pitch_play(jump_sound)
+		sounds.jump()
 		player.velocity.y = -player.jump_force

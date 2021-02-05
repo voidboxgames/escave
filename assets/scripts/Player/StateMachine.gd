@@ -5,6 +5,8 @@ export var initial_state := NodePath()
 
 onready var state = get_node(initial_state)
 
+signal transitioned(old_state, new_state)
+
 func _ready() -> void:
 	yield(owner, "ready")
 	for child in get_children():
@@ -24,5 +26,7 @@ func transition_to(state_name: String, msg := {}) -> void:
 	if not has_node(state_name):
 		return
 	state.leave()
+	var old_state = state.name
 	state = get_node(state_name)
 	state.enter(msg)
+	emit_signal("transitioned", old_state, state_name)

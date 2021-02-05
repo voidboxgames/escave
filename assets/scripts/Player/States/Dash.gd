@@ -1,13 +1,18 @@
 extends PlayerState
 
 onready var dash_timer: Timer = $DashTimer
+onready var dash_sound: AudioStreamPlayer = $Dash
 
 var previous_state: String
+
+signal dashed
 
 func enter(msg := {}) -> void:
 	previous_state = msg.get("from", "Idle")
 	if not player.is_on_floor():
 		player.current_dashes += 1
+	emit_signal("dashed")
+	Audio.rand_pitch_play(dash_sound)
 	player.animations.play("air")
 	dash_timer.start()
 

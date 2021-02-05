@@ -494,7 +494,6 @@ clear_color = Color( 0.054902, 0.0509804, 0.054902, 1 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 16.4186, -11.2119 )
-current_max_speed = 20
 
 [node name="gruond" type="TileMap" parent="YSort"]
 z_index = -10
