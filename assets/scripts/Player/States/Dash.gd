@@ -19,7 +19,7 @@ func enter(msg := {}) -> void:
 func leave() -> void:
 	player.velocity = Vector2.ZERO
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	if dash_timer.is_stopped():
 		state_machine.transition_to(previous_state)
 		return

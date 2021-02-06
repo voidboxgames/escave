@@ -4,8 +4,6 @@ onready var jump_timer: Timer = $JumpTimer
 onready var coyote_timer = $CoyoteTimer
 onready var jump_sound = $Jump
 
-signal jumped
-
 func enter(msg := {}) -> void:
 	player.animations.play("air")
 	if msg.has("do_jump"):

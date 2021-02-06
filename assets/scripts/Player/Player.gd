@@ -15,7 +15,7 @@ export var can_jump = false
 onready var animations: AnimationPlayer = $AnimationPlayer
 onready var body: = $Body
 onready var state_machine = $StateMachine
-onready var death_sound = $Death
+onready var hurt_box_collision = $HurtBox/CollisionShape2D
 
 var velocity = Vector2.ZERO
 var direction = Vector2.ZERO
@@ -52,14 +52,17 @@ func calculate_x_velocity(vel: Vector2, direction_x: float) -> Vector2:
 	)
 
 func die():
-	state_machine.disabled = true
-	body.visible = false
+	_disable(true)
 	emit_signal("dead", self)
 
 func respawn(pos: Vector2):
 	global_position = pos
-	body.visible = true
-	state_machine.disabled = false
+	_disable(false)
+
+func _disable(value: bool) -> void:
+	hurt_box_collision.disabled = value
+	state_machine.disabled = value
+	body.visible = !value
 
 func gain_power(power) -> void:
 	match power:
@@ -72,10 +75,10 @@ func gain_power(power) -> void:
 		powers.WALK_NORMAL:
 			current_max_speed = max_speed
 
-func _on_StateMachine_transitioned(old_state, new_state) -> void:
+func _on_StateMachine_transitioned(_old_state, new_state) -> void:
 	match new_state:
 		"Dash":
 			emit_signal("dash")
 
-func _on_HurtBox_body_entered(body: Node) -> void:
+func _on_HurtBox_body_entered(_body: Node) -> void:
 	die()

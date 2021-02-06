@@ -5,7 +5,7 @@ class_name Room
 export(Color, RGB) var color
 
 onready var rect = _calculate_rect()
-onready var canvasModulate = $Color
+#onready var canvasModulate = $Colors
 
 func _calculate_rect() -> Rect2:
 	# TODO: more robust screen size enumeratioon
@@ -16,6 +16,6 @@ func _calculate_rect() -> Rect2:
 	return Rect2(_position, _size)
 
 func activate() -> void:
-	canvasModulate.color = color
+#	canvasModulate.color = color
 	make_current()
 	update()

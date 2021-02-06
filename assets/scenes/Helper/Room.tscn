@@ -2,8 +2,10 @@
 
 [ext_resource path="res://assets/scenes/Helper/Room.gd" type="Script" id=2]
 
-[node name="Room" type="Camera2D"]
-zoom = Vector2( 0.3, 0.3 )
+[node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2( 0.3, 0.3 )
 
 [node name="Color" type="CanvasModulate" parent="."]

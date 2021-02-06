@@ -494,6 +494,8 @@ clear_color = Color( 0.054902, 0.0509804, 0.054902, 1 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 16.4186, -11.2119 )
+current_max_speed = 100
+can_jump = true
 
 [node name="gruond" type="TileMap" parent="YSort"]
 z_index = -10
@@ -901,6 +903,9 @@ autostart = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.721569, 0.709804, 0.815686, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 44 )
@@ -913,8 +918,11 @@ anims/End = SubResource( 45 )
 [node name="Endfade" type="ColorRect" parent="EndLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -0.153664
+margin_bottom = -0.153687
 color = Color( 1, 1, 1, 0 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -922,11 +930,10 @@ __meta__ = {
 position = Vector2( 1754, -305.181 )
 [connection signal="dash" from="YSort/Player" to="." method="_on_Player_dash"]
 [connection signal="dead" from="YSort/Player" to="." method="_on_Player_dead"]
-[connection signal="visibility_changed" from="YSort/Player" to="." method="_on_Player_visibility_changed"]
-[connection signal="collected" from="MirrorPieces/Dash" to="MirrorPieces" method="_on_Dash_collected"]
-[connection signal="collected" from="MirrorPieces/FastWalk" to="MirrorPieces" method="_on_FastWalk_collected"]
-[connection signal="collected" from="MirrorPieces/DoubleDash" to="MirrorPieces" method="_on_DoubleDash_collected"]
-[connection signal="collected" from="MirrorPieces/MirrorPiece_Jump" to="MirrorPieces" method="_on_MirrorPiece_Jump_collected"]
+[connection signal="collected" from="MirrorPieces/Dash" to="." method="_on_Dash_collected"]
+[connection signal="collected" from="MirrorPieces/FastWalk" to="." method="_on_FastWalk_collected"]
+[connection signal="collected" from="MirrorPieces/DoubleDash" to="." method="_on_DoubleDash_collected"]
+[connection signal="collected" from="MirrorPieces/MirrorPiece_Jump" to="." method="_on_MirrorPiece_Jump_collected"]
 [connection signal="body_shape_entered" from="Trigger/Bridge1Trigger" to="Trigger" method="_on_Area2D_body_shape_entered"]
 [connection signal="body_shape_entered" from="Trigger/Bridge1Trigger2" to="Trigger" method="_on_Bridge1Trigger2_body_shape_entered"]
 [connection signal="body_entered" from="Trigger/Moods/MoodChange" to="." method="_on_MoodChange_body_entered"]

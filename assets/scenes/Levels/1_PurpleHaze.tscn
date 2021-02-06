@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/resources/GroundPurple.tres" type="TileSet" id=4]
 [ext_resource path="res://assets/scenes/Levels/Rooms.gd" type="Script" id=5]
 
-
 [node name="PurpleHaze" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -28,7 +27,6 @@ scale = Vector2( 0.488345, 0.751345 )
 script = ExtResource( 5 )
 
 [node name="Room1" parent="Rooms" instance=ExtResource( 1 )]
-current = true
 color = Color( 0.952941, 0.309804, 0.309804, 1 )
 
 [node name="Room2" parent="Rooms" instance=ExtResource( 1 )]
@@ -37,17 +35,14 @@ color = Color( 0.309804, 0.776471, 0.960784, 1 )
 
 [node name="Room3" parent="Rooms" instance=ExtResource( 1 )]
 position = Vector2( 261.981, 218.251 )
-zoom = Vector2( 0.4, 0.4 )
 color = Color( 0.67451, 0.721569, 0.407843, 1 )
 
 [node name="Room4" parent="Rooms" instance=ExtResource( 1 )]
 position = Vector2( -206.491, 209.745 )
-zoom = Vector2( 0.5, 0.5 )
 color = Color( 0.462745, 0.721569, 0.407843, 1 )
 
 [node name="Room5" parent="Rooms" instance=ExtResource( 1 )]
 position = Vector2( -168.247, 452.071 )
-zoom = Vector2( 0.2, 0.2 )
 color = Color( 0.462745, 0.721569, 0.407843, 1 )
 
 [node name="Room6" parent="Rooms" instance=ExtResource( 1 )]
@@ -56,7 +51,6 @@ color = Color( 0.462745, 0.721569, 0.407843, 1 )
 
 [node name="Room7" parent="Rooms" instance=ExtResource( 1 )]
 position = Vector2( 438.785, 481.275 )
-zoom = Vector2( 0.4, 0.4 )
 color = Color( 0.462745, 0.721569, 0.407843, 1 )
 
 [node name="CheckTimer" type="Timer" parent="Rooms"]

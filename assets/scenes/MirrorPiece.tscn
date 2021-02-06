@@ -1,69 +1,55 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/sprites/mirror_piece-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/scenes/MirrorPiece.gd" type="Script" id=2]
-[ext_resource path="res://assets/scenes/MirrorPieceSprite.gd" type="Script" id=3]
 [ext_resource path="res://assets/sounds/pickup_1.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/sprites/light1.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6.13475, 6.72483 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
 length = 0.4
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.144818, 0.289637 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.188893, 0.396676 ),
-"transitions": PoolRealArray( 0.353553, 0.378929, 2.14355 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1.09713, 0.228569 ), Vector2( 1.097, -3.229 ), Vector2( 1.09713, 0.228569 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ), Vector2( 0, 1 ) ]
 }
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.29472, 6.10453 )
 
 [node name="MirrorPiece" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 1.09713, 0.228569 )
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Body"]
 texture = ExtResource( 1 )
 hframes = 3
-frame = 2
-script = ExtResource( 3 )
 
-[node name="Light2D" type="Light2D" parent="Sprite"]
+[node name="Light2D" type="Light2D" parent="Body"]
 texture = ExtResource( 5 )
 texture_scale = 1.49
 color = Color( 0.584314, 0.768627, 1, 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-autoplay = "idle"
-anims/idle = SubResource( 1 )
+[node name="HitBox" type="Area2D" parent="Body"]
+position = Vector2( 1.09713, 0.228569 )
 
-[node name="HitBox" type="Area2D" parent="Sprite"]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/HitBox"]
-position = Vector2( -1.31439, 0.751083 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/HitBox"]
+position = Vector2( -1, 0.7 )
 shape = SubResource( 2 )
 
 [node name="PickupSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-[connection signal="body_entered" from="Sprite/HitBox" to="Sprite" method="_on_HitBox_body_entered"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 1 )
+[connection signal="body_entered" from="Body/HitBox" to="." method="_on_HitBox_body_entered"]
