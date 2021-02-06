@@ -151,4 +151,5 @@ collision_mask = 2
 position = Vector2( -0.0720634, 1.69343 )
 shape = SubResource( 6 )
 [connection signal="transitioned" from="StateMachine" to="." method="_on_StateMachine_transitioned"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]

@@ -60,9 +60,10 @@ func respawn(pos: Vector2):
 	_disable(false)
 
 func _disable(value: bool) -> void:
-	hurt_box_collision.disabled = value
+	hurt_box_collision.set_deferred("disabled", value)
 	state_machine.disabled = value
 	body.visible = !value
+
 
 func gain_power(power) -> void:
 	match power:
@@ -81,4 +82,8 @@ func _on_StateMachine_transitioned(_old_state, new_state) -> void:
 			emit_signal("dash")
 
 func _on_HurtBox_body_entered(_body: Node) -> void:
+	die()
+
+
+func _on_HurtBox_area_entered(area: Area2D) -> void:
 	die()
