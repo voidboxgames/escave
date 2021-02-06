@@ -2,8 +2,9 @@ class_name StateMachine
 extends Node
 
 export var initial_state := NodePath()
-
 onready var state = get_node(initial_state)
+
+var disabled: bool = false setget set_disabled
 
 signal transitioned(old_state, new_state)
 
@@ -30,3 +31,10 @@ func transition_to(state_name: String, msg := {}) -> void:
 	state = get_node(state_name)
 	state.enter(msg)
 	emit_signal("transitioned", old_state, state_name)
+
+func set_disabled(value: bool) -> void:
+	set_process(!value)
+	set_physics_process(!value)
+	set_process_input(!value)
+	set_process_unhandled_input(!value)
+	set_process_unhandled_key_input(!value)

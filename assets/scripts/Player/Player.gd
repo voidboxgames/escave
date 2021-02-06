@@ -14,7 +14,7 @@ export var can_jump = false
 
 onready var animations: AnimationPlayer = $AnimationPlayer
 onready var body: = $Body
-onready var collision_shape = $CollisionShape2D
+onready var state_machine = $StateMachine
 onready var death_sound = $Death
 
 var velocity = Vector2.ZERO
@@ -22,8 +22,8 @@ var direction = Vector2.ZERO
 var last_direction = Vector2.RIGHT
 var current_dashes: int = 0
 
-signal dead(Player)
 signal dash
+signal dead(player)
 
 enum powers {
 	NONE,
@@ -32,9 +32,6 @@ enum powers {
 	DOUBLE_DASH,
 	WALK_NORMAL
 }
-
-func _process(_delta: float) -> void:
-	deadCheck()
 
 func can_dash() -> bool:
 	return current_dashes < max_dashes
@@ -47,12 +44,6 @@ func update_direction_input() -> void:
 	if direction != Vector2.ZERO:
 		last_direction = direction
 
-func deadCheck() -> void:
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		if collision.collider.is_in_group("deadly"):
-			die()
-
 func calculate_x_velocity(vel: Vector2, direction_x: float) -> Vector2:
 	body.flip(direction_x)
 	return Vector2 (
@@ -60,12 +51,15 @@ func calculate_x_velocity(vel: Vector2, direction_x: float) -> Vector2:
 		vel.y
 	)
 
-func die() -> void:
-	Audio.rand_pitch_play(death_sound)
+func die():
+	state_machine.disabled = true
+	body.visible = false
 	emit_signal("dead", self)
 
 func respawn(pos: Vector2):
 	global_position = pos
+	body.visible = true
+	state_machine.disabled = false
 
 func gain_power(power) -> void:
 	match power:
@@ -79,5 +73,9 @@ func gain_power(power) -> void:
 			current_max_speed = max_speed
 
 func _on_StateMachine_transitioned(old_state, new_state) -> void:
-	if new_state == "Dash":
-		emit_signal("dash")
+	match new_state:
+		"Dash":
+			emit_signal("dash")
+
+func _on_HurtBox_body_entered(body: Node) -> void:
+	die()

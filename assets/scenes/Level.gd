@@ -6,7 +6,9 @@ onready var rooms = $YSort/Rooms.get_children()
 onready var player = $YSort/Player
 onready var current_room = $YSort/Rooms/Room1
 onready var current_respawn = $YSort/Rooms/Room1/Respawns/R1
-onready var PLAYER = preload("res://assets/scenes/Player.tscn")
+onready var Death = preload("res://assets/scenes/effects/Death.tscn")
+onready var Respawn = preload("res://assets/scenes/effects/Respawn.tscn")
+
 var current_color = Color("b8b5d0")
 
 func _ready() -> void:
@@ -15,9 +17,6 @@ func _ready() -> void:
 	BackgroundMusic.play()
 	VisualServer.set_default_clear_color(clear_color)
 	$EndLayer/Endfade.color = Color("00ffffff")
-
-func _on_Player_dead(player: Player) -> void:
-	player.respawn(current_respawn.global_position)
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body is Player:
@@ -39,7 +38,6 @@ func _activate_room(room: Camera2D) -> void:
 	current_room = room
 	room.make_current()
 	_find_nearest_respawn()
-
 
 func _on_Roomchecker_timeout() -> void:
 	if player == null:
@@ -84,7 +82,6 @@ func _on_MoodChange_body_entered(body: Node) -> void:
 		current_color = Color("#e16e1a")
 		$CanvasModulate.set_color(current_color)
 
-
 func _on_MoodChange3_body_entered(body: Node) -> void:
 	if body is Player:
 		current_color = Color("b8b5d0")
@@ -93,3 +90,14 @@ func _on_MoodChange3_body_entered(body: Node) -> void:
 func end() -> void:
 	get_tree().change_scene("res://assets/scenes/Credits.tscn")
 
+func _on_Player_dead(player: Player) -> void:
+	var death = Death.instance()
+	death.global_position = player.global_position
+	$YSort.add_child(death)
+	yield(death, "done")
+
+	var respawn = Respawn.instance()
+	respawn.global_position = current_respawn.global_position
+	$YSort.add_child(respawn)
+	yield(respawn, "done")
+	player.respawn(current_respawn.global_position)

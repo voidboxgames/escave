@@ -6,14 +6,13 @@
 [ext_resource path="res://assets/scripts/Player/States/Dash.gd" type="Script" id=4]
 [ext_resource path="res://assets/scripts/Player/StateMachine.gd" type="Script" id=5]
 [ext_resource path="res://assets/scripts/Player/States/Idle.gd" type="Script" id=6]
-[ext_resource path="res://assets/sounds/death_1.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/scripts/Player/States/Run.gd" type="Script" id=9]
 [ext_resource path="res://assets/scripts/Player/Body.gd" type="Script" id=10]
 [ext_resource path="res://assets/sounds/jump_2.wav" type="AudioStream" id=11]
 [ext_resource path="res://assets/sounds/dash_1.wav" type="AudioStream" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 1.57842
+radius = 1.87404
 height = 4.01056
 
 [sub_resource type="Animation" id=2]
@@ -82,6 +81,9 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7 ]
 }
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 1.54977, 4.99887 )
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -92,6 +94,7 @@ script = ExtResource( 10 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 4
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3.03044 )
@@ -139,6 +142,13 @@ one_shot = true
 [node name="Dash" type="AudioStreamPlayer" parent="StateMachine/Dash"]
 stream = ExtResource( 12 )
 
-[node name="Death" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
+[node name="HurtBox" type="Area2D" parent="."]
+modulate = Color( 0.505882, 1, 0.0666667, 1 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2( -0.0720634, 1.69343 )
+shape = SubResource( 6 )
 [connection signal="transitioned" from="StateMachine" to="." method="_on_StateMachine_transitioned"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]

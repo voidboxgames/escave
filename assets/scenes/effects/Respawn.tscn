@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 2, 1, 0 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -46,14 +46,15 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[node name="Death" type="Node2D"]
+[node name="Respawn" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 hframes = 3
+frame = 2
 
-[node name="DeathPlayer" type="AudioStreamPlayer" parent="."]
+[node name="RespawnPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
 
