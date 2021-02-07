@@ -2,10 +2,10 @@ extends Node2D
 
 export(Color, RGB) var clear_color
 
-onready var rooms = $YSort/Rooms.get_children()
-onready var player = $YSort/Player
-onready var current_room = $YSort/Rooms/Room1
-onready var current_respawn = $YSort/Rooms/Room1/Respawns/R1
+onready var rooms = $Rooms.get_children()
+onready var player = $Player
+onready var current_room = $Rooms/Room1
+onready var current_respawn = $Rooms/Room1/Respawns/R1
 onready var monolog = $Monolog
 
 var Death = preload("res://assets/scenes/effects/Death.tscn")
@@ -27,7 +27,7 @@ func _find_nearest_respawn() -> void:
 	var last_distance: float = 1000000
 	var nearest_respawn = null
 	for respawn in current_room.get_node("Respawns").get_children():
-		var distance = respawn.get_position().distance_to($YSort/Player.position)
+		var distance = respawn.get_position().distance_to($Player.position)
 		if distance < last_distance:
 			nearest_respawn = respawn
 			last_distance = distance
@@ -96,17 +96,17 @@ func end() -> void:
 func _on_Player_dead(p: Player) -> void:
 	var death = Death.instance()
 	death.global_position = p.global_position
-	$YSort.add_child(death)
+	add_child(death)
 	yield(death, "done")
 
 	var respawn = Respawn.instance()
 	respawn.global_position = current_respawn.global_position
-	$YSort.add_child(respawn)
+	add_child(respawn)
 	yield(respawn, "done")
 	p.respawn(current_respawn.global_position)
 
 func _on_Dash_collected() -> void:
-	current_respawn = get_node("YSort/Rooms/Room13/Respawns/R2")
+	current_respawn = get_node("Rooms/Room13/Respawns/R2")
 	monolog.play("can_dash")
 
 func _on_DoubleDash_collected() -> void:

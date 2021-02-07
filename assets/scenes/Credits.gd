@@ -3,12 +3,10 @@ extends Control
 var current_anim = 1
 var max_anim = 6
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	BackgroundMusic.stream_paused = true
-	pass
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if current_anim == max_anim:
 		get_tree().change_scene("res://assets/scenes/Intro.tscn")
 
