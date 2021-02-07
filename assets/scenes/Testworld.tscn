@@ -766,37 +766,46 @@ power = 1
 
 [node name="Fireball" parent="Fireballs" instance=ExtResource( 13 )]
 position = Vector2( -0.608475, 424.026 )
+z_index = -20
 
 [node name="Fireball2" parent="Fireballs" instance=ExtResource( 13 )]
 position = Vector2( 31.1489, 423.954 )
+z_index = -20
 startTime = 1.7
 
 [node name="Fireball3" parent="Fireballs" instance=ExtResource( 13 )]
 position = Vector2( 326.594, 446.157 )
+z_index = -20
 startTime = 1.7
 
 [node name="Fireball4" parent="Fireballs" instance=ExtResource( 13 )]
 position = Vector2( 418.885, 424.174 )
+z_index = -20
 startTime = 0.0
 
 [node name="Fireball5" parent="Fireballs" instance=ExtResource( 13 )]
 position = Vector2( 1293.71, 74.1953 )
+z_index = -20
 startTime = 1.7
 
 [node name="Fireball6" parent="Fireballs" instance=ExtResource( 13 )]
 position = Vector2( 1329.48, 75.4464 )
+z_index = -20
 startTime = 1.7
 
 [node name="Fireball7" parent="Fireballs" instance=ExtResource( 13 )]
 position = Vector2( 1266.83, 310.328 )
+z_index = -20
 startTime = 0.0
 
 [node name="Fireball8" parent="Fireballs" instance=ExtResource( 13 )]
 position = Vector2( 1202.14, 312.163 )
+z_index = -20
 startTime = 0.2
 
 [node name="Fireball9" parent="Fireballs" instance=ExtResource( 13 )]
 position = Vector2( 1104.89, 310.787 )
+z_index = -20
 startTime = 0.0
 
 [node name="Trigger" type="Node" parent="."]
