@@ -3,23 +3,18 @@ extends PlayerState
 func enter(_msg := {}) -> void:
 	player.animations.play("idle")
 
+func handle_input(event: InputEvent) -> void:
+	if event.is_action_pressed("dash") && player.can_dash():
+		state_machine.transition_to("Dash", {from = "Idle"})
+	elif event.is_action_pressed("jump") && player.can_jump:
+		state_machine.transition_to("Air", {do_jump = true})
+	elif event.is_action_pressed("right") or event.is_action_pressed("left"):
+		state_machine.transition_to("Run")
+
 func update(_delta: float) -> void:
 	player.update_direction_input()
 	if not player.is_on_floor():
 		state_machine.transition_to("Air")
-		return
-
-	if Input.is_action_just_pressed("dash") && player.can_dash():
-		state_machine.transition_to("Dash", {from = "Idle"})
-		return
-
-	if Input.is_action_just_pressed("jump") && player.can_jump:
-		state_machine.transition_to("Air", {do_jump = true})
-		return
-
-	if Input.is_action_pressed("right") or Input.is_action_pressed("left"):
-		state_machine.transition_to("Run")
-		return
 
 func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta

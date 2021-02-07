@@ -85,5 +85,5 @@ func _on_HurtBox_body_entered(_body: Node) -> void:
 	die()
 
 
-func _on_HurtBox_area_entered(area: Area2D) -> void:
+func _on_HurtBox_area_entered(_area: Area2D) -> void:
 	die()
