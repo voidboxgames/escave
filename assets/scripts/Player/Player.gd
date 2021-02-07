@@ -33,6 +33,10 @@ enum powers {
 	WALK_NORMAL
 }
 
+func _process(_delta: float) -> void:
+	if is_on_floor() && current_dashes != 0:
+		current_dashes = 0
+
 func can_dash() -> bool:
 	return current_dashes < max_dashes
 
@@ -64,7 +68,6 @@ func _disable(value: bool) -> void:
 	state_machine.disabled = value
 	body.visible = !value
 
-
 func gain_power(power) -> void:
 	match power:
 		powers.JUMP:
@@ -83,7 +86,6 @@ func _on_StateMachine_transitioned(_old_state, new_state) -> void:
 
 func _on_HurtBox_body_entered(_body: Node) -> void:
 	die()
-
 
 func _on_HurtBox_area_entered(_area: Area2D) -> void:
 	die()

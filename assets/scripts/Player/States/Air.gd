@@ -28,7 +28,6 @@ func update(_delta: float) -> void:
 		if not jump_timer.is_stopped():
 			_do_jump()
 		else:
-			player.current_dashes = 0
 			if player.direction.x == 0.0:
 				state_machine.transition_to("Idle")
 				return
@@ -39,7 +38,7 @@ func update(_delta: float) -> void:
 func physics_update(delta: float) -> void:
 	player.velocity = player.calculate_x_velocity(player.velocity, player.direction.x)
 	player.velocity.y += player.gravity * delta
-	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 
 func _do_jump():
 	if player.can_jump:

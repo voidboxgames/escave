@@ -19,4 +19,4 @@ func update(_delta: float) -> void:
 func physics_update(delta: float) -> void:
 	player.velocity = player.calculate_x_velocity(player.velocity, player.direction.x)
 	player.velocity.y += player.gravity * delta
-	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
