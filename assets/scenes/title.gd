@@ -9,4 +9,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		$AnimationPlayer.play("crack")
 
 func start_game() -> void:
-	get_tree().change_scene("res://assets/scenes/Testworld.tscn")
+	var err: = get_tree().change_scene("res://assets/scenes/Testworld.tscn")
+	if err:
+		printerr(err)

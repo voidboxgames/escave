@@ -89,7 +89,9 @@ func _on_MoodChange3_body_entered(body: Node) -> void:
 		$CanvasModulate.set_color(current_color)
 
 func end() -> void:
-	get_tree().change_scene("res://assets/scenes/Credits.tscn")
+	var err: = get_tree().change_scene("res://assets/scenes/Credits.tscn")
+	if err:
+		printerr(err)
 
 func _on_Player_dead(p: Player) -> void:
 	var death = Death.instance()
