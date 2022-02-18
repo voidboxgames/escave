@@ -933,6 +933,7 @@ __meta__ = {
 
 [node name="Mirror" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1754, -305.181 )
+
 [connection signal="dash" from="Player" to="." method="_on_Player_dash"]
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 [connection signal="collected" from="MirrorPieces/Dash" to="." method="_on_Dash_collected"]

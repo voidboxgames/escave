@@ -91,8 +91,8 @@ script = ExtResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="Body"]
 texture = ExtResource( 2 )
-vframes = 3
 hframes = 4
+vframes = 3
 frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -150,6 +150,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2( -0.0720634, 1.69343 )
 shape = SubResource( 6 )
+
 [connection signal="transitioned" from="StateMachine" to="." method="_on_StateMachine_transitioned"]
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_on_DashTimer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]

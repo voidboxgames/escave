@@ -1,6 +1,6 @@
 extends Camera2D
 
-class_name Room
+class_name GameRoom
 
 export(Color, RGB) var color
 
